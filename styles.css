@@ -480,7 +480,7 @@ section {
 }
 
 .host-title {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 1rem;
