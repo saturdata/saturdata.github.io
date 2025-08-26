@@ -472,6 +472,13 @@ section {
     margin-bottom: 0.5rem;
 }
 
+.host-pronouns {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6b7280;
+    margin-left: 0.5rem;
+}
+
 .host-title {
     font-size: 1.1rem;
     font-weight: 600;
