@@ -1531,8 +1531,9 @@ section {
     transition: opacity 0.3s ease;
 }
 
+/* Removed play button hover effect */
 .episode-card:hover .episode-overlay {
-    opacity: 1;
+    opacity: 0;
 }
 
 .play-icon {
