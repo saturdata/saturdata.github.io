@@ -1,0 +1,24 @@
+{
+  "name": "ho1yshif.github.ioo",
+  "version": "1.0.0",
+  "description": "Shifra Williams' portfolio website - A modern, responsive portfolio showcasing skills, projects, and expertise in data science and technology.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ho1yShif/ho1yshif.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ho1yShif/ho1yshif.github.io/issues"
+  },
+  "homepage": "https://github.com/Ho1yShif/ho1yshif.github.io#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
