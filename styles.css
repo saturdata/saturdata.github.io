@@ -1508,8 +1508,10 @@ section {
 
 .episode-image {
     position: relative;
-    height: 160px;
+    min-height: 200px;
+    max-height: 280px;
     overflow: hidden;
+    aspect-ratio: 16 / 9; /* Default aspect ratio */
 }
 
 .episode-image img {
@@ -1518,6 +1520,13 @@ section {
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
+}
+
+/* Alternative: show full image without cropping */
+.episode-image.full-image img,
+.guest-appearance-image.full-image img {
+    object-fit: contain;
+    background: var(--bg-secondary);
 }
 
 .episode-card:hover .episode-image img {
@@ -1653,6 +1662,12 @@ section {
         gap: 1.5rem;
     }
     
+    .episode-image,
+    .guest-appearance-image {
+        min-height: 180px;
+        max-height: 240px;
+    }
+    
     .episode-content {
         padding: 1.25rem;
     }
@@ -1677,6 +1692,12 @@ section {
 @media (max-width: 480px) {
     .episodes {
         padding: 2rem 0;
+    }
+    
+    .episode-image,
+    .guest-appearance-image {
+        min-height: 160px;
+        max-height: 200px;
     }
     
     .episode-content {
@@ -1739,8 +1760,10 @@ section {
 
 .guest-appearance-image {
     position: relative;
-    height: 160px;
+    min-height: 200px;
+    max-height: 280px;
     overflow: hidden;
+    aspect-ratio: 16 / 9; /* Default aspect ratio */
 }
 
 .guest-appearance-image img {
