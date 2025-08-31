@@ -1711,7 +1711,7 @@ section {
     margin: 0 auto;
 }
 
-.guest-appearance-card {
+.episode-card {
     background: var(--bg-secondary);
     border-radius: 1rem;
     overflow: hidden;
@@ -1723,16 +1723,16 @@ section {
     flex-direction: column;
 }
 
-.guest-appearance-card:hover {
+.episode-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
 }
 
-.guest-appearance-card.featured {
+.episode-card.featured {
     box-shadow: var(--shadow-medium);
 }
 
-.guest-appearance-card.featured:hover {
+.episode-card.featured:hover {
     box-shadow: var(--shadow-large);
 }
 
@@ -1751,7 +1751,7 @@ section {
     transition: transform 0.3s ease;
 }
 
-.guest-appearance-card:hover .guest-appearance-image img {
+.episode-card:hover .guest-appearance-image img {
     transform: scale(1.02);
 }
 
@@ -1770,7 +1770,7 @@ section {
 }
 
 /* Removed play button hover effect */
-.guest-appearance-card:hover .guest-appearance-overlay {
+.episode-card:hover .guest-appearance-overlay {
     opacity: 0;
 }
 
