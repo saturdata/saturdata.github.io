@@ -1470,9 +1470,9 @@ section {
 
 .episodes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1484,6 +1484,8 @@ section {
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .episode-card:hover {
@@ -1499,9 +1501,11 @@ section {
     box-shadow: var(--shadow-large);
 }
 
+
+
 .episode-image {
     position: relative;
-    height: 200px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -1549,6 +1553,9 @@ section {
 
 .episode-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .episode-header {
@@ -1586,12 +1593,14 @@ section {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    flex-grow: 1;
 }
 
 .episode-links {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .episode-link {
@@ -1626,64 +1635,9 @@ section {
     transform: translateY(-1px);
 }
 
-.coming-soon-card {
-    background: var(--bg-secondary);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: var(--shadow-light);
-    border: 2px dashed var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 600px;
-    margin: 2rem auto 0;
-}
 
-.coming-soon-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
 
-.coming-soon-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
 
-.coming-soon-description {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.subscribe-links {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
-}
-
-.subscribe-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    min-width: 180px;
-}
-
-.subscribe-link:hover {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-}
 
 /* Responsive design for episodes section */
 @media (max-width: 768px) {
@@ -1714,9 +1668,7 @@ section {
         text-align: center;
     }
     
-    .coming-soon-card {
-        padding: 1.5rem;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -1737,11 +1689,193 @@ section {
         padding: 0.2rem 0.6rem;
     }
     
-    .coming-soon-card {
+
+    
+
+}
+
+/* Guest Appearances Section - Similar to Episodes */
+.guest-appearances {
+    background: var(--bg-color);
+    padding: 5rem 0;
+}
+
+.guest-appearances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guest-appearance-card {
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.guest-appearance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.guest-appearance-card.featured {
+    box-shadow: var(--shadow-medium);
+}
+
+.guest-appearance-card.featured:hover {
+    box-shadow: var(--shadow-large);
+}
+
+
+.guest-appearance-image {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+}
+
+.guest-appearance-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.guest-appearance-card:hover .guest-appearance-image img {
+    transform: scale(1.02);
+}
+
+.guest-appearance-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Removed play button hover effect */
+.guest-appearance-card:hover .guest-appearance-overlay {
+    opacity: 0;
+}
+
+.guest-appearance-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.guest-appearance-header {
+    margin-bottom: 1rem;
+}
+
+.guest-appearance-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.guest-appearance-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.guest-appearance-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.guest-appearance-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.guest-appearance-link.youtube {
+    background: #ff0000;
+    color: white;
+}
+
+.guest-appearance-link.youtube:hover {
+    background: #cc0000;
+    transform: translateY(-1px);
+}
+
+.guest-appearance-link.spotify {
+    background: #1db954;
+    color: white;
+}
+
+.guest-appearance-link.spotify:hover {
+    background: #1ed760;
+    transform: translateY(-1px);
+}
+
+/* Responsive design for guest appearances section */
+@media (max-width: 768px) {
+    .guest-appearances {
+        padding: 3rem 0;
+    }
+    
+    .guest-appearances-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .guest-appearance-content {
+        padding: 1.25rem;
+    }
+    
+    .guest-appearance-title {
+        font-size: 1.125rem;
+    }
+    
+    .guest-appearance-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .guest-appearance-link {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .guest-appearances {
+        padding: 2rem 0;
+    }
+    
+    .guest-appearance-content {
         padding: 1rem;
     }
     
-    .subscribe-links {
-        gap: 0.75rem;
+    .guest-appearance-title {
+        font-size: 1rem;
     }
 }
