@@ -1196,6 +1196,12 @@ section {
     position: relative;
 }
 
+/* Special handling for YouTube logo to maintain aspect ratio */
+.contact-icon-link[href*="youtube"] .contact-icon-svg {
+    width: 32px;
+    height: auto;
+}
+
 /* Platform-specific icon colors */
 .contact-icon-link {
     background: var(--gradient-primary); /* Default */
@@ -1264,6 +1270,12 @@ section {
         width: 24px;
         height: 24px;
     }
+    
+    /* YouTube logo responsive adjustment for tablet */
+    .contact-icon-link[href*="youtube"] .contact-icon-svg {
+        width: 28px;
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1296,6 +1308,12 @@ section {
     .contact-icon-svg {
         width: 20px;
         height: 20px;
+    }
+    
+    /* YouTube logo responsive adjustment for mobile */
+    .contact-icon-link[href*="youtube"] .contact-icon-svg {
+        width: 24px;
+        height: auto;
     }
 }
 
