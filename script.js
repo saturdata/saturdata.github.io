@@ -239,7 +239,8 @@ function initializeKeyboardNavigation() {
                 '1': 'home',
                 '2': 'about',
                 '3': 'episodes',
-                '4': 'connect'
+                '4': 'guest-appearances',
+                '5': 'connect'
             };
             
             const sectionId = sectionMap[e.key];
