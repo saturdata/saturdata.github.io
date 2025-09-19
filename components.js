@@ -21,8 +21,7 @@ const SaturdataComponents = {
     },
 
     // Episode/Content Card Component (works for both episodes and appearances)
-    createContentCard: function(contentData, isFeatured = false) {
-        const featuredClass = isFeatured ? 'featured' : '';
+    createContentCard: function(contentData) {
         const playIcon = contentData.type === 'episode' ? 
             `<path d="m6 19 7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/>` :
             `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" fill="none"/>`;
@@ -36,7 +35,33 @@ const SaturdataComponents = {
         const linkClass = contentData.type === 'episode' ? 'guest-appearance-link' : 'guest-appearance-link';
 
         let linksHtml = '';
-        if (contentData.links && contentData.links.length > 0) {
+        
+        // Handle episodes with youtube_link and spotify_link
+        if (contentData.type === 'episode' && (contentData.youtube_link || contentData.spotify_link)) {
+            const links = [];
+            if (contentData.youtube_link) {
+                links.push({
+                    platform: 'youtube',
+                    url: contentData.youtube_link,
+                    text: 'YouTube'
+                });
+            }
+            if (contentData.spotify_link) {
+                links.push({
+                    platform: 'spotify',
+                    url: contentData.spotify_link,
+                    text: 'Spotify'
+                });
+            }
+            linksHtml = links.map(link => `
+                <a href="${link.url}" class="${linkClass} ${link.platform}" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/images/logos/${link.platform}.png" alt="${link.platform}" width="16" height="${link.platform === 'youtube' ? '11' : '16'}" />
+                    ${link.text}
+                </a>
+            `).join('');
+        }
+        // Handle appearances with links array (backward compatibility)
+        else if (contentData.links && contentData.links.length > 0) {
             linksHtml = contentData.links.map(link => `
                 <a href="${link.url}" class="${linkClass} ${link.platform}" target="_blank" rel="noopener noreferrer">
                     <img src="assets/images/logos/${link.platform}.png" alt="${link.platform}" width="16" height="${link.platform === 'youtube' ? '11' : '16'}" />
@@ -46,7 +71,7 @@ const SaturdataComponents = {
         }
 
         return `
-            <div class="episode-card ${featuredClass}">
+            <div class="episode-card">
                 <div class="${imageClass}">
                     <img src="${contentData.image}" alt="${contentData.title}" />
                     <div class="guest-appearance-overlay">
@@ -87,7 +112,7 @@ const SaturdataComponents = {
             contentHtml = `
                 <div class="${gridClass}">
                     ${sectionData.items.map((item, index) => 
-                        this.createContentCard(item, item.featured || false)
+                        this.createContentCard(item)
                     ).join('')}
                 </div>
             `;
@@ -125,7 +150,7 @@ const SaturdataComponents = {
                             <h2 class="section-title">${sectionData.title}</h2>
                             <div class="${gridClass}">
                                 ${sectionData.items.map((item, index) => 
-                                    this.createContentCard(item, item.featured || false)
+                                    this.createContentCard(item)
                                 ).join('')}
                             </div>
                         `;

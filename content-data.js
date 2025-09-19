@@ -43,91 +43,40 @@ const SaturdataContent = {
                 type: 'episode',
                 image: 'assets/images/episodes/hello-world.png',
                 description: 'Join hosts Shifra Williams and Sam LaFell as they introduce Saturdata - your weekend data community. Learn about their backgrounds, the mission of the podcast, and what you can expect from future episodes as they humanize the data world for the next generation.',
-                featured: true,
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/pBvuqiyRIG8?si=HHX52WFaXHms7UlF',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/59Ji4HMwEV4CzxkOvACQgX?si=lSWD-wstSAm-_fVuwEYhGA',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://youtu.be/pBvuqiyRIG8?si=HHX52WFaXHms7UlF',
+                spotify_link: 'https://open.spotify.com/episode/59Ji4HMwEV4CzxkOvACQgX?si=lSWD-wstSAm-_fVuwEYhGA'
             },
             {
                 title: 'Day in the life of a data engineer',
                 type: 'episode',
                 image: 'assets/images/episodes/ditl-data-eng.png',
                 description: 'Join hosts Sam and Shifra as they explore the realities of data roles. Sam discusses a day in the life of a data engineer. From the glamorous perceptions to the day-to-day challenges, they discuss the skills, stakeholders, and the importance of understanding the "why" behind data projects.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://www.youtube.com/watch?v=HI0jUmXiEgQ',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/5zxJxAz57GOWCqieeiuZzf?si=6a094e38dec3408f',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://www.youtube.com/watch?v=HI0jUmXiEgQ',
+                spotify_link: 'https://open.spotify.com/episode/5zxJxAz57GOWCqieeiuZzf?si=6a094e38dec3408f'
             },
             {
                 title: 'Day in the life of a data scientist',
                 type: 'episode',
                 image: 'assets/images/episodes/ditl-data-sci.png',
                 description: 'Join hosts Sam and Shifra as they explore what it really means to be a data scientist. From building predictive models to translating complex insights for stakeholders, they discuss the balance between ad hoc requests, dashboard creation, and meaningful machine learning work.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/jrP-U7-0gAk?feature=shared',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/1cAy3QmwP6PIwI5JLg3Eus?si=d8ecc591eea34a3a',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://youtu.be/jrP-U7-0gAk?feature=shared',
+                spotify_link: 'https://open.spotify.com/episode/1cAy3QmwP6PIwI5JLg3Eus?si=d8ecc591eea34a3a'
             },
             {
                 title: 'Data interviews: From ghosting to guidance',
                 type: 'episode',
                 image: 'assets/images/episodes/interviews-1.png',
                 description: 'Interviews don\'t have to suck! Join Sam and Shifra as they break down everything you need to know about data career interviews. From the good and the bad to the downright ridiculous, they share real talk about what actually works in the interview process.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/2hwU_jBwQZs?feature=shared',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/5QkUuMrzBL1lDCoJAldLtC?si=8bcc9f9647124157',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://youtu.be/2hwU_jBwQZs?feature=shared',
+                spotify_link: 'https://open.spotify.com/episode/5QkUuMrzBL1lDCoJAldLtC?si=8bcc9f9647124157'
             },
             {
                 title: 'More episodes coming soon',
                 type: 'episode',
                 image: 'assets/images/logos/saturdata.png',
                 description: 'We\'re just getting started! Subscribe to stay updated on new episodes, behind-the-scenes content, and special guest appearances.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://www.youtube.com/@SaturdataPod',
-                        text: 'Subscribe'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo',
-                        text: 'Follow'
-                    }
-                ]
+                youtube_link: 'https://www.youtube.com/@SaturdataPod',
+                spotify_link: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo'
             }
         ]
     },
@@ -143,7 +92,6 @@ const SaturdataContent = {
                 type: 'appearance',
                 image: 'assets/images/appearances/fpa-today.png',
                 description: 'Shifra joins FP&A Today with Glenn Hopper to break down data science methods for finance professionals, from data ingestion to machine learning and ARIMA models in Excel.',
-                featured: true,
                 links: [
                     {
                         platform: 'youtube',

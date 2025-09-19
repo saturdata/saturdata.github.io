@@ -81,19 +81,8 @@ This website uses a component-based system for easy content management. Instead 
     type: 'episode',
     image: 'assets/images/episodes/your-image.png',
     description: 'Your episode description here...',
-    featured: false, // set to true for featured styling
-    links: [
-        {
-            platform: 'youtube',
-            url: 'https://youtube.com/your-video',
-            text: 'YouTube'
-        },
-        {
-            platform: 'spotify',
-            url: 'https://spotify.com/your-episode',
-            text: 'Spotify'
-        }
-    ]
+    youtube_link: 'https://youtube.com/your-video',
+    spotify_link: 'https://spotify.com/your-episode'
 }
 ```
 
@@ -107,7 +96,6 @@ Follow the same pattern in the `appearances.items` array:
     type: 'appearance',
     image: 'assets/images/appearances/your-image.png',
     description: 'Description of the appearance...',
-    featured: false,
     links: [
         {
             platform: 'youtube',
