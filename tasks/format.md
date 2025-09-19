@@ -2,8 +2,8 @@
 
 ## Logos
 - Use these logos everywhere, not some random generated images like now:
-    assets/images/spotify.png
-    assets/images/youtube.png
+    assets/images/logos/spotify.png
+    assets/images/logos/youtube.png
 
 
 ## Episode window size
