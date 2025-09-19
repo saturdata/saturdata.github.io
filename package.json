@@ -4,7 +4,7 @@
   "description": "Saturdata Podcast website - A modern, responsive website for the Saturdata Podcast",
   "main": "script.js",
   "scripts": {
-    "dev": "live-server --port=3000 --host=localhost",
+    "dev": "live-server . --port=3000 --host=localhost --open=/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
