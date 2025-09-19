@@ -1201,6 +1201,9 @@ section {
     align-items: center;
     gap: 1.5rem;
     flex-wrap: wrap;
+    padding: 2rem 0;
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 .contact-icon-link {
