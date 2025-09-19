@@ -1522,7 +1522,7 @@ section {
 }
 
 .season-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
 }
 
@@ -1531,6 +1531,14 @@ section {
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 1rem;
+}
+
+.season-separator {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0 0 2rem 0;
+    width: 200px;
+    opacity: 0.6;
 }
 
 .episodes-grid {

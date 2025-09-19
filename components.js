@@ -43,6 +43,16 @@ const SaturdataComponents = {
         `;
     },
 
+    // Season Indicator Component
+    createSeasonIndicator: function(seasonNumber) {
+        return `
+            <div class="season-header">
+                <div class="season-title">Season ${seasonNumber}</div>
+                <div class="season-separator"></div>
+            </div>
+        `;
+    },
+
     // Episode/Content Card Component (works for both episodes and appearances)
     createContentCard: function(contentData) {
         const playIcon = contentData.type === 'episode' ? 
@@ -169,8 +179,10 @@ const SaturdataComponents = {
                         `;
                     } else if (sectionData.type === 'episodes' || sectionData.type === 'appearances') {
                         const gridClass = sectionData.type === 'episodes' ? 'episodes-grid' : 'guest-appearances-grid';
+                        const seasonIndicator = sectionData.type === 'episodes' ? this.createSeasonIndicator(0) : '';
                         contentHtml = `
                             <h2 class="section-title">${sectionData.title}</h2>
+                            ${seasonIndicator}
                             <div class="${gridClass}">
                                 ${sectionData.items.map((item, index) => 
                                     this.createContentCard(item)
