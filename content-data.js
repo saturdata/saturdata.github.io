@@ -13,21 +13,57 @@ const SaturdataContent = {
                 pronouns: 'she/they',
                 title: 'Co-host',
                 image: 'assets/images/about/shif.jpeg',
-                description: 'Shifra is a Developer Advocate whose career has been defined by one core mission: making complex technical concepts click for real people. Their journey spans data science, technical writing, and community building, all tied together by her passion for creating those crucial "aha!" moments that transform confusion into confidence.\n\nNow at Ascend.io, she operates at the intersection of agentic data engineering and developer success. What energizes them most is community building—connecting technical experts with early-career learners and creating educational experiences that stick. Through her work across platforms, she\'s reached over 135K learners and contributed to projects that serve 100K+ users.'
+                description: 'Shifra is a Developer Advocate whose career has been defined by one core mission: making complex technical concepts click for real people. Their journey spans data science, technical writing, and community building, all tied together by her passion for creating those crucial "aha!" moments that transform confusion into confidence.\n\nNow at Ascend.io, she operates at the intersection of agentic data engineering and developer success. What energizes them most is community building—connecting technical experts with early-career learners and creating educational experiences that stick. Through her work across platforms, she\'s reached over 135K learners and contributed to projects that serve 100K+ users.',
+                social_links: [
+                    {
+                        platform: 'linkedin',
+                        url: 'https://www.linkedin.com/in/shifra-williams/',
+                        label: 'LinkedIn'
+                    },
+                    {
+                        platform: 'website',
+                        url: 'https://ho1yshif.github.io/',
+                        label: 'Website'
+                    }
+                ]
             },
             {
                 name: 'Sam LaFell',
                 pronouns: 'he/him',
                 title: 'Co-host',
                 image: 'assets/images/about/sam.jpeg',
-                description: 'Sam is a Data Engineer, MLOps Enthusiast, and builder of smarter data pipelines. He started his career as a Data Scientist, but quickly realized that messy data and inefficient pipelines were the real bottlenecks. Now, as a Data Engineer, he focuses on building scalable, reliable, and efficient data systems that empower organizations to make smarter decisions.\n\nSam works across Python, SQL, and cloud platforms like AWS & Azure to build resilient data solutions. He bridges the gap between Data Science & Engineering, ensuring models don\'t just get built—they get deployed and deliver real value. Sam believes data should be an asset, not a liability, and he\'s also building his own business, helping organizations level up their data infrastructure.'
+                description: 'Sam is a Data Engineer, MLOps Enthusiast, and builder of smarter data pipelines. He started his career as a Data Scientist, but quickly realized that messy data and inefficient pipelines were the real bottlenecks. Now, as a Data Engineer, he focuses on building scalable, reliable, and efficient data systems that empower organizations to make smarter decisions.\n\nSam works across Python, SQL, and cloud platforms like AWS & Azure to build resilient data solutions. He bridges the gap between Data Science & Engineering, ensuring models don\'t just get built—they get deployed and deliver real value. Sam believes data should be an asset, not a liability, and he\'s also building his own business, helping organizations level up their data infrastructure.',
+                social_links: [
+                    {
+                        platform: 'linkedin',
+                        url: 'https://www.linkedin.com/in/samlafell/',
+                        label: 'LinkedIn'
+                    },
+                    {
+                        platform: 'website',
+                        url: 'https://www.samlafell.com/',
+                        label: 'Website'
+                    }
+                ]
             },
             {
                 name: 'Eli Akselrod',
                 pronouns: 'she/her',
                 title: 'Post-production editor',
                 image: 'assets/images/about/eli.jpg',
-                description: 'Eli is an Emmy and Golden Reel-nominated audio engineer with expertise in post-production and dialogue editing. \n\n Saturdata is a break from Eli\'s usual work on the silver screen, and she enjoys telling the hosts\' stories through podcasting.'
+                description: 'Eli is an Emmy and Golden Reel-nominated audio engineer with expertise in post-production and dialogue editing. \n\n Saturdata is a break from Eli\'s usual work on the silver screen, and she enjoys telling the hosts\' stories through podcasting.',
+                social_links: [
+                    {
+                        platform: 'linkedin',
+                        url: 'https://www.linkedin.com/in/eli-akselrod/',
+                        label: 'LinkedIn'
+                    },
+                    {
+                        platform: 'website',
+                        url: 'https://elisfx.com/#/',
+                        label: 'Website'
+                    }
+                ]
             }
         ]
     },

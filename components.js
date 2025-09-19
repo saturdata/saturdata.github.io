@@ -6,6 +6,28 @@ const SaturdataComponents = {
     
     // Host Profile Component
     createHostProfile: function(hostData) {
+        const socialLinksHtml = hostData.social_links ? `
+            <div class="host-social-links">
+                ${hostData.social_links.map(link => `
+                    <a href="${link.url}" class="host-social-link" target="_blank" rel="noopener noreferrer" aria-label="${hostData.name}'s ${link.label}">
+                        ${link.platform === 'linkedin' ? `
+                            <svg class="host-social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        ` : `
+                            <svg class="host-social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 12h20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        `}
+                    </a>
+                `).join('')}
+            </div>
+        ` : '';
+        
         return `
             <div class="host-profile">
                 <div class="host-image">
@@ -14,8 +36,19 @@ const SaturdataComponents = {
                 <div class="host-content">
                     <h3 class="host-name">${hostData.name} <span class="host-pronouns">${hostData.pronouns}</span></h3>
                     <h4 class="host-title">${hostData.title}</h4>
+                    ${socialLinksHtml}
                     <p class="host-description">${hostData.description}</p>
                 </div>
+            </div>
+        `;
+    },
+
+    // Season Indicator Component
+    createSeasonIndicator: function(seasonNumber) {
+        return `
+            <div class="season-header">
+                <div class="season-title">Season ${seasonNumber}</div>
+                <div class="season-separator"></div>
             </div>
         `;
     },
@@ -146,8 +179,10 @@ const SaturdataComponents = {
                         `;
                     } else if (sectionData.type === 'episodes' || sectionData.type === 'appearances') {
                         const gridClass = sectionData.type === 'episodes' ? 'episodes-grid' : 'guest-appearances-grid';
+                        const seasonIndicator = sectionData.type === 'episodes' ? this.createSeasonIndicator(0) : '';
                         contentHtml = `
                             <h2 class="section-title">${sectionData.title}</h2>
+                            ${seasonIndicator}
                             <div class="${gridClass}">
                                 ${sectionData.items.map((item, index) => 
                                     this.createContentCard(item)
