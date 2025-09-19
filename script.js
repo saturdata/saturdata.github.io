@@ -13,6 +13,9 @@ function initializeApp() {
     initializeContactForm();
     initializeSmoothScrolling();
     updateCopyrightYear();
+    
+    // Initialize dynamic content sections
+    initializeDynamicContent();
 }
 
 // Navigation functionality
@@ -287,6 +290,21 @@ function updateCopyrightYear() {
     if (currentYearElement) {
         const currentYear = new Date().getFullYear();
         currentYearElement.textContent = currentYear;
+    }
+}
+
+// Initialize dynamic content sections
+function initializeDynamicContent() {
+    // Check if SaturdataContent and SaturdataComponents are available
+    if (typeof SaturdataContent !== 'undefined' && typeof SaturdataComponents !== 'undefined') {
+        // Render all sections using the component system
+        SaturdataComponents.renderSections([
+            SaturdataContent.about,
+            SaturdataContent.episodes,
+            SaturdataContent.appearances
+        ]);
+    } else {
+        console.warn('SaturdataContent or SaturdataComponents not loaded');
     }
 }
 

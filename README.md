@@ -33,6 +33,7 @@ The website will automatically open in your browser at `http://localhost:3000` w
 ### 🎙️ Podcast Website
 - Episode listings and links
 - Host information and bios
+- Guest appearance showcase
 - Community connection links
 - Modern, podcast-focused design
 
@@ -50,9 +51,87 @@ The website will automatically open in your browser at `http://localhost:3000` w
 - Keyboard navigation support
 - High contrast ratios meeting WCAG guidelines
 
+### 🔧 Component System
+- Standardized components for About, Episodes, and Appearances sections
+- Data-driven content management through JSON configuration
+- Easy content updates without HTML editing
+- Consistent structure and styling across all sections
+- Automatic HTML generation from structured data
+
+## Content Management
+
+This website uses a component-based system for easy content management. Instead of editing HTML directly, you can update content by modifying data files.
+
+### File Structure
+
+- `content-data.js` - Contains all content data (episodes, appearances, host info)
+- `components.js` - Component generation functions
+- `script.js` - Initializes components on page load
+- `index.html` - Main HTML structure with component placeholders
+
+### Adding New Episodes
+
+1. Open `content-data.js`
+2. Find the `episodes.items` array
+3. Add a new episode object:
+
+```javascript
+{
+    title: 'Your Episode Title',
+    type: 'episode',
+    image: 'assets/images/episodes/your-image.png',
+    description: 'Your episode description here...',
+    youtube_link: 'https://youtube.com/your-video',
+    spotify_link: 'https://spotify.com/your-episode'
+}
+```
+
+### Adding Guest Appearances
+
+Follow the same pattern in the `appearances.items` array:
+
+```javascript
+{
+    title: 'Appearance Title',
+    type: 'appearance',
+    image: 'assets/images/appearances/your-image.png',
+    description: 'Description of the appearance...',
+    links: [
+        {
+            platform: 'youtube',
+            url: 'https://youtube.com/appearance-video',
+            text: 'YouTube'
+        }
+    ]
+}
+```
+
+### Updating Host Information
+
+Modify the `about.items` array to update host profiles:
+
+```javascript
+{
+    name: 'Host Name',
+    pronouns: 'they/them',
+    title: 'Host Title',
+    image: 'assets/images/about/host-image.jpg',
+    description: 'Host description with \\n\\n for paragraph breaks...'
+}
+```
+
+### Benefits
+
+- ✅ **Easy Updates**: No HTML editing required
+- ✅ **Consistency**: All items follow the same structure
+- ✅ **Error Prevention**: Structured data reduces syntax errors
+- ✅ **Maintainability**: Centralized content management
+- ✅ **Scalability**: Simple to add new sections
+
 ## Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Content Management**: Component-based system with JSON data
 - **Styling**: Modern CSS with Custom Properties, Grid, Flexbox
 - **Development**: Live Server for hot reload
 - **Icons**: CSS-based emoji icons for universal compatibility

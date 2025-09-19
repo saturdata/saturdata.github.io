@@ -1,10 +1,10 @@
 {
-  "name": "ho1yshif.github.ioo",
+  "name": "saturdata.github.ioo",
   "version": "1.0.0",
-  "description": "Shifra Williams' portfolio website - A modern, responsive portfolio showcasing skills, projects, and expertise in data science and technology.",
+  "description": "Saturdata Podcast website - A modern, responsive website for the Saturdata Podcast",
   "main": "script.js",
   "scripts": {
-    "dev": "live-server --port=3000 --host=localhost",
+    "dev": "live-server . --port=3000 --host=localhost --open=/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
