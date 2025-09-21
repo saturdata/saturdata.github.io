@@ -107,6 +107,14 @@ const SaturdataContent = {
                 spotify_link: 'https://open.spotify.com/episode/5QkUuMrzBL1lDCoJAldLtC?si=8bcc9f9647124157'
             },
             {
+                title: 'Data interviews: The good, the bad, and the hilarious',
+                type: 'episode',
+                image: 'assets/images/episodes/interviews-2.png',
+                description: 'If we didn\'t get the job, at least we got a story out of it! Join Sam and Shifra as they break down the most popular interview questions the wildest interview stories, and the benefits of the Zumba council. Maybe the real interviews were the friends we made along the way?',
+                youtube_link: 'hhttps://youtu.be/_EB-kWDrjtM?si=PyleFbgITf8u9dS6',
+                spotify_link: 'https://open.spotify.com/episode/6q8cO5iCVqc3X279SY2fyQ?si=4da281179e484786'
+            },
+            {
                 title: 'More episodes coming soon',
                 type: 'episode',
                 image: 'assets/images/logos/saturdata.png',
