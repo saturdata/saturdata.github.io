@@ -1,4 +1,4 @@
-// Content Data for Saturdata Website
+// Content data for Saturdata website
 // This file contains all the content data for the about, episodes, and appearances sections
 
 const SaturdataContent = {
@@ -13,7 +13,7 @@ const SaturdataContent = {
                 pronouns: 'she/they',
                 title: 'Co-host',
                 image: 'assets/images/about/shif.jpeg',
-                description: 'Shifra is a Developer Advocate whose career has been defined by one core mission: making complex technical concepts click for real people. Their journey spans data science, technical writing, and community building, all tied together by her passion for creating those crucial "aha!" moments that transform confusion into confidence.\n\nNow at Ascend.io, she operates at the intersection of agentic data engineering and developer success. What energizes them most is community building—connecting technical experts with early-career learners and creating educational experiences that stick. Through her work across platforms, she&apos;s reached over 135K learners and contributed to projects that serve 100K+ users.',
+                description: 'Shifra is a Developer Advocate whose career has been defined by one core mission: making complex technical concepts click for real people. Their journey spans data science, technical writing, and community building, all tied together by her passion for creating those crucial "aha!" moments that transform confusion into confidence.<br><br>Now at Ascend.io, she operates at the intersection of agentic data engineering and developer success. What energizes them most is community building—connecting technical experts with early-career learners and creating educational experiences that stick. Through her work across platforms, she&apos;s reached over 135K learners and contributed to projects that serve 100K+ users.',
                 social_links: [
                     {
                         platform: 'linkedin',
@@ -32,7 +32,7 @@ const SaturdataContent = {
                 pronouns: 'he/him',
                 title: 'Co-host',
                 image: 'assets/images/about/sam.jpeg',
-                description: 'Sam is a Data Engineer, MLOps Enthusiast, and builder of smarter data pipelines. He started his career as a Data Scientist, but quickly realized that messy data and inefficient pipelines were the real bottlenecks. Now, as a Data Engineer, he focuses on building scalable, reliable, and efficient data systems that empower organizations to make smarter decisions.\n\nSam works across Python, SQL, and cloud platforms like AWS & Azure to build resilient data solutions. He bridges the gap between Data Science & Engineering, ensuring models don&apos;t just get built—they get deployed and deliver real value. Sam believes data should be an asset, not a liability, and he&apos;s also building his own business, helping organizations level up their data infrastructure.',
+                description: 'Sam is a Data Engineer, MLOps Enthusiast, and builder of smarter data pipelines. He started his career as a Data Scientist, but quickly realized that messy data and inefficient pipelines were the real bottlenecks. Now, as a Data Engineer, he focuses on building scalable, reliable, and efficient data systems that empower organizations to make smarter decisions.<br><br>Sam works across Python, SQL, and cloud platforms like AWS & Azure to build resilient data solutions. He bridges the gap between Data Science & Engineering, ensuring models don&apos;t just get built—they get deployed and deliver real value. Sam believes data should be an asset, not a liability, and he&apos;s also building his own business, helping organizations level up their data infrastructure.',
                 social_links: [
                     {
                         platform: 'linkedin',
@@ -51,7 +51,7 @@ const SaturdataContent = {
                 pronouns: 'she/her',
                 title: 'Post-production editor',
                 image: 'assets/images/about/eli.jpg',
-                description: 'Eli is an Emmy and Golden Reel-nominated audio engineer with expertise in post-production and dialogue editing. \n\n Saturdata is a break from Eli&apos;s usual work on the silver screen, and she enjoys telling the hosts&apos; stories through podcasting.',
+                description: 'Eli is an Emmy and Golden Reel-nominated audio engineer who brings extensive expertise in post-production and dialogue editing from the world of film and television. Her impressive portfolio spans high-profile projects including HBO&apos;s Emmy-nominated "100 Foot Wave," the critically acclaimed documentary "Bill Russell: Legend," Netflix&apos;s sports documentary series "Full Swing," and the HBO comedy series "Boys But Girls."<br><br>With Saturdata, Eli ventures into new creative territory beyond the silver screen. She masterfully applies her audio storytelling expertise to the podcasting medium, crafting an engaging listening experience that transforms complex technical topics into accessible and entertaining content for audiences.',
                 social_links: [
                     {
                         platform: 'linkedin',
