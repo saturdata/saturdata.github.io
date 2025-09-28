@@ -69,8 +69,8 @@ const SaturdataComponents = {
 
         let linksHtml = '';
         
-        // Handle episodes with youtube_link and spotify_link
-        if (contentData.type === 'episode' && (contentData.youtube_link || contentData.spotify_link)) {
+        // Handle episodes and appearances with youtube_link and spotify_link
+        if ((contentData.type === 'episode' || contentData.type === 'appearance') && (contentData.youtube_link || contentData.spotify_link)) {
             const links = [];
             if (contentData.youtube_link) {
                 links.push({
@@ -87,15 +87,6 @@ const SaturdataComponents = {
                 });
             }
             linksHtml = links.map(link => `
-                <a href="${link.url}" class="${linkClass} ${link.platform}" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/images/logos/${link.platform}.png" alt="${link.platform}" width="16" height="${link.platform === 'youtube' ? '11' : '16'}" />
-                    ${link.text}
-                </a>
-            `).join('');
-        }
-        // Handle appearances with links array (backward compatibility)
-        else if (contentData.links && contentData.links.length > 0) {
-            linksHtml = contentData.links.map(link => `
                 <a href="${link.url}" class="${linkClass} ${link.platform}" target="_blank" rel="noopener noreferrer">
                     <img src="assets/images/logos/${link.platform}.png" alt="${link.platform}" width="16" height="${link.platform === 'youtube' ? '11' : '16'}" />
                     ${link.text}
