@@ -202,6 +202,24 @@ const SaturdataContent = {
                         text: 'Spotify'
                     }
                 ]
+            },
+            {
+                title: 'Data science in healthcare: navigating insights and challenges',
+                type: 'appearance',
+                image: 'assets/images/appearances/net-results.png',
+                description: 'Shifra and Sam join the Net Result with Ben Smith to discuss the transformative role of data science in the healthcare industry. Discover how cutting-edge data analytics is reshaping patient care, streamlining operations, and driving innovation. We explore the key insights gained from integrating data science into healthcare practices, while also addressing the significant challenges faced by professionals in the field.',
+                links: [
+                    {
+                        platform: 'youtube',
+                        url: 'https://www.youtube.com/watch?v=8h4Qo-qQDu8',
+                        text: 'YouTube'
+                    },
+                    {
+                        platform: 'spotify',
+                        url: 'https://open.spotify.com/episode/3MriuFJvzQUoNrYFZNBc0F?si=9825ae5fae1843f6',
+                        text: 'Spotify'
+                    }
+                ]
             }
         ]
     }
