@@ -115,6 +115,14 @@ const SaturdataContent = {
                 spotify_link: 'https://open.spotify.com/episode/6q8cO5iCVqc3X279SY2fyQ?si=4da281179e484786'
             },
             {
+                title: 'Unlocking opportunities: the power of LinkedIn networking with Sai Bysani',
+                type: 'episode',
+                image: 'assets/images/episodes/sai.png',
+                description: 'Sai Bysani shares the LinkedIn strategy that transformed his career. Learn practical tips for content creation, comment strategies, and why starting where you are beats waiting for perfection.',
+                youtube_link: 'https://www.youtube.com/watch?v=Xt559oTBuMk',
+                spotify_link: 'https://open.spotify.com/episode/1TxKPQNad3KX26RdF8aZtd?si=b9a5999af7c54f3b',
+            },
+            {
                 title: 'More episodes coming soon',
                 type: 'episode',
                 image: 'assets/images/logos/saturdata.png',
@@ -206,8 +214,8 @@ const SaturdataContent = {
             {
                 title: 'Data science in healthcare: navigating insights and challenges',
                 type: 'appearance',
-                image: 'assets/images/appearances/net-results.png',
-                description: 'Shifra and Sam join the Net Result with Ben Smith to discuss the transformative role of data science in the healthcare industry. Discover how cutting-edge data analytics is reshaping patient care, streamlining operations, and driving innovation. We explore the key insights gained from integrating data science into healthcare practices, while also addressing the significant challenges faced by professionals in the field.',
+                image: 'assets/images/appearances/net-result.jpg',
+                description: 'Shifra and Sam join the Net Result with Ben Smith to discuss the transformative role of data science in the healthcare industry. Discover how cutting-edge data analytics is reshaping patient care, streamlining operations, and driving innovation.',
                 links: [
                     {
                         platform: 'youtube',
@@ -220,7 +228,7 @@ const SaturdataContent = {
                         text: 'Spotify'
                     }
                 ]
-            }
+            },
         ]
     }
 };
