@@ -1246,6 +1246,13 @@ section {
     height: auto;
 }
 
+/* Special handling for Buy Me a Coffee logo to maintain aspect ratio */
+.contact-icon-link[href*="buymeacoffee"] .contact-icon-svg {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
 /* Platform-specific icon colors */
 .contact-icon-link {
     background: var(--gradient-primary); /* Default */
@@ -1264,6 +1271,16 @@ section {
 /* Instagram */
 .contact-icons-row .contact-icon-link[href*="instagram"] {
     background: linear-gradient(135deg, #e4405f 0%, #833ab4 50%, #f77737 100%);
+}
+
+/* Patreon */
+.contact-icons-row .contact-icon-link[href*="patreon"] {
+    background: linear-gradient(135deg, #ff424d 0%, #f96854 100%);
+}
+
+/* Buy Me a Coffee */
+.contact-icons-row .contact-icon-link[href*="buymeacoffee"] {
+    background: linear-gradient(135deg, #ffdd00 0%, #ffb800 100%);
 }
 
 /* Email */
@@ -1320,6 +1337,13 @@ section {
         width: 28px;
         height: auto;
     }
+    
+    /* Buy Me a Coffee logo responsive adjustment for tablet */
+    .contact-icon-link[href*="buymeacoffee"] .contact-icon-svg {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1358,6 +1382,13 @@ section {
     .contact-icon-link[href*="youtube"] .contact-icon-svg {
         width: 24px;
         height: auto;
+    }
+    
+    /* Buy Me a Coffee logo responsive adjustment for mobile */
+    .contact-icon-link[href*="buymeacoffee"] .contact-icon-svg {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
     }
 }
 
