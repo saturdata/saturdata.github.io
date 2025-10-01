@@ -115,6 +115,14 @@ const SaturdataContent = {
                 spotify_link: 'https://open.spotify.com/episode/6q8cO5iCVqc3X279SY2fyQ?si=4da281179e484786'
             },
             {
+                title: 'Unlocking opportunities: the power of LinkedIn networking with Sai Bysani',
+                type: 'episode',
+                image: 'assets/images/episodes/sai.png',
+                description: 'Sai Bysani shares the LinkedIn strategy that transformed his career. Learn practical tips for content creation, comment strategies, and why starting where you are beats waiting for perfection.',
+                youtube_link: 'https://www.youtube.com/watch?v=Xt559oTBuMk',
+                spotify_link: 'https://open.spotify.com/episode/1TxKPQNad3KX26RdF8aZtd?si=b9a5999af7c54f3b',
+            },
+            {
                 title: 'More episodes coming soon',
                 type: 'episode',
                 image: 'assets/images/logos/saturdata.png',
@@ -136,73 +144,41 @@ const SaturdataContent = {
                 type: 'appearance',
                 image: 'assets/images/appearances/fpa-today.png',
                 description: 'Shifra joins FP&A Today with Glenn Hopper to break down data science methods for finance professionals, from data ingestion to machine learning and ARIMA models in Excel.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/lWFpcwcSmQg?si=EUMoEd4Idw_wWrfo',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/0D3BaBiRxY4hAAGB1IITfQ?si=a6a09d5af2ea4da9',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://youtu.be/lWFpcwcSmQg?si=EUMoEd4Idw_wWrfo',
+                spotify_link: 'https://open.spotify.com/episode/0D3BaBiRxY4hAAGB1IITfQ?si=a6a09d5af2ea4da9'
             },
             {
                 title: 'How to get hired as a data engineer',
                 type: 'appearance',
                 image: 'assets/images/appearances/sam-rsd.png',
                 description: 'Sam joins Ready Set Do with Naman Pandey to share his experience breaking into data engineering and the key strategies for landing data engineering roles.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/JtF8b7k8nO8?si=Vhj1iO7c9itUbx_3',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/6cn5CoLiUalZCxnFOmWRiK?si=c9a4cc190234451a',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://youtu.be/JtF8b7k8nO8?si=Vhj1iO7c9itUbx_3',
+                spotify_link: 'https://open.spotify.com/episode/6cn5CoLiUalZCxnFOmWRiK?si=c9a4cc190234451a'
             },
             {
                 title: 'Why LinkedIn is your secret weapon',
                 type: 'appearance',
                 image: 'assets/images/appearances/shif-rsd-li.png',
                 description: 'Shifra joins Ready Set Do with Naman Pandey to share how professionals can leverage LinkedIn to grow their careers, build networks, and create opportunities for advancement.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://www.youtube.com/watch?v=wphrAyEr6dY',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/5uxbUxZ46GYLQUfRi9O4TK?si=162be73fdd494380',
-                        text: 'Spotify'
-                    }
-                ]
+                youtube_link: 'https://www.youtube.com/watch?v=wphrAyEr6dY',
+                spotify_link: 'https://open.spotify.com/episode/5uxbUxZ46GYLQUfRi9O4TK?si=162be73fdd494380'
             },
             {
                 title: 'From music to data: How anyone can pivot to a tech career',
                 type: 'appearance',
                 image: 'assets/images/appearances/shif-rsd-music.png',
                 description: 'Shifra joins Ready Set Do with Naman Pandey to share their journey from music to data and practical strategies for transitioning to tech from any background.',
-                links: [
-                    {
-                        platform: 'youtube',
-                        url: 'https://youtu.be/d9HULEWeCmk?si=-arO55XF-T2nEKiM',
-                        text: 'YouTube'
-                    },
-                    {
-                        platform: 'spotify',
-                        url: 'https://open.spotify.com/episode/73CdAVvQLlVdEtvWuiPNKe?si=9c9c7ef7e0344a83',
-                        text: 'Spotify'
-                    }
-                ]
-            }
+                youtube_link: 'https://youtu.be/d9HULEWeCmk?si=-arO55XF-T2nEKiM',
+                spotify_link: 'https://open.spotify.com/episode/73CdAVvQLlVdEtvWuiPNKe?si=9c9c7ef7e0344a83'
+            },
+            {
+                title: 'Data science in healthcare: navigating insights and challenges',
+                type: 'appearance',
+                image: 'assets/images/appearances/net-result.jpg',
+                description: 'Shifra and Sam join the Net Result with Ben Smith to discuss the transformative role of data science in the healthcare industry. Discover how cutting-edge data analytics is reshaping patient care, streamlining operations, and driving innovation.',
+                youtube_link: 'https://www.youtube.com/watch?v=8h4Qo-qQDu8',
+                spotify_link: 'https://open.spotify.com/episode/3MriuFJvzQUoNrYFZNBc0F?si=9825ae5fae1843f6'
+            },
         ]
     }
 };
