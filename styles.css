@@ -1177,9 +1177,6 @@ section {
     font-size: 1rem;
 }
 
-.support-btn.patreon {
-    background: linear-gradient(135deg, #ff424d, #f96854);
-}
 
 .support-btn.coffee {
     background: linear-gradient(135deg, #ffdd00, #ffb800);
@@ -1328,10 +1325,6 @@ section {
     background: linear-gradient(135deg, #e4405f 0%, #833ab4 50%, #f77737 100%);
 }
 
-/* Patreon */
-.contact-icons-row .contact-icon-link[href*="patreon"] {
-    background: linear-gradient(135deg, #ff424d 0%, #f96854 100%);
-}
 
 /* Buy Me a Coffee */
 .contact-icons-row .contact-icon-link[href*="buymeacoffee"] {
