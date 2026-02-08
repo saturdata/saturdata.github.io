@@ -406,7 +406,8 @@ function HostsSection() {
             role={host.title}
             bio={host.description}
             image={host.image}
-            socialLinks={host.social_links}
+            linkedinLink={host.linkedin_link}
+            websiteLink={host.website_link}
           />
         ))}
         
@@ -416,18 +417,8 @@ function HostsSection() {
           role="Podcast"
           bio="Saturdata is the community-driven podcast humanizing the data world for the next generation of analysts, scientists, and engineers. Join hosts Shifra Williams and Sam LaFell every weekend as they break down both the career journey and the technical foundations that matter. <br></br> From navigating interviews to mastering SQL, Python, terminal basics, and understanding AI safety, Saturdata covers the full stack of becoming a successful data professional."
           image="assets/images/about/saturdata_square.png"
-          socialLinks={[
-            {
-              platform: 'linkedin',
-              url: 'https://www.linkedin.com/company/saturdata',
-              label: 'Saturdata LinkedIn'
-            },
-            {
-              platform: 'website',
-              url: 'https://saturdata.github.io',
-              label: 'Saturdata Website'
-            }
-          ]}
+          linkedinLink="https://www.linkedin.com/company/saturdata"
+          websiteLink="https://saturdata.github.io"
         />
       </div>
     </div>

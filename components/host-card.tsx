@@ -1,22 +1,19 @@
 import { Linkedin, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface SocialLink {
-  platform: string
-  url: string
-  label: string
-}
-
 interface HostCardProps {
   name: string
   pronouns: string
   role: string
   bio: string
   image?: string
-  socialLinks?: SocialLink[]
+  linkedinLink?: string
+  websiteLink?: string
 }
 
-export function HostCard({ name, pronouns, role, bio, image, socialLinks }: HostCardProps) {
+export function HostCard({ name, pronouns, role, bio, image, linkedinLink, websiteLink }: HostCardProps) {
+  const hasLinks = linkedinLink || websiteLink
+
   return (
     <div className="border border-border rounded-md bg-card overflow-hidden flex flex-col h-full">
       <div className="flex items-start gap-6 px-4 py-4 border-b border-border bg-muted/30">
@@ -39,27 +36,42 @@ export function HostCard({ name, pronouns, role, bio, image, socialLinks }: Host
             <span className="text-xs text-muted-foreground">{pronouns}</span>
           </div>
           <span className="text-xs text-primary font-mono block mb-2 mt-2">{role}</span>
-          {socialLinks && socialLinks.length > 0 && (
+          {hasLinks && (
             <div className="flex gap-2 -ml-2">
-              {socialLinks.map((link) => (
+              {linkedinLink && (
                 <Button
-                  key={link.platform}
                   variant="outline"
                   size="sm"
                   className="h-8 w-8 p-0 bg-transparent hover:bg-transparent group"
                   asChild
                 >
                   <a
-                    href={link.url}
+                    href={linkedinLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={link.label}
+                    aria-label="LinkedIn"
                   >
-                    {link.platform === 'linkedin' && <Linkedin className="h-4 w-4 group-hover:text-primary" />}
-                    {link.platform === 'website' && <Globe className="h-4 w-4 group-hover:text-primary" />}
+                    <Linkedin className="h-4 w-4 group-hover:text-primary" />
                   </a>
                 </Button>
-              ))}
+              )}
+              {websiteLink && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-8 w-8 p-0 bg-transparent hover:bg-transparent group"
+                  asChild
+                >
+                  <a
+                    href={websiteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Website"
+                  >
+                    <Globe className="h-4 w-4 group-hover:text-primary" />
+                  </a>
+                </Button>
+              )}
             </div>
           )}
         </div>
