@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button"
 import { SaturdataContent } from "@/lib/content-data"
 
 const tabs = [
-  { id: "home", label: "welcome.sql", icon: <Database className="h-3.5 w-3.5 text-primary" /> },
+  { id: "home", label: "welcome", icon: <Database className="h-3.5 w-3.5 text-primary" /> },
   { id: "hosts", label: "about", icon: <Users className="h-3.5 w-3.5 text-syntax-string" /> },
   { id: "episodes", label: "episodes", icon: <Mic className="h-3.5 w-3.5 text-syntax-function" /> },
   { id: "guests", label: "guest_appearances", icon: <Table className="h-3.5 w-3.5 text-syntax-number" /> },
@@ -211,9 +211,9 @@ function HomeSection() {
         title="Query results"
         rowCount={1}
         columns={[
-          { key: "mission", label: "mission", type: "string", width: "50%" },
-          { key: "schedule", label: "schedule", type: "string", width: "20%" },
-          { key: "hosts", label: "hosts", type: "string", width: "30%" },
+          { key: "mission", label: "mission", type: "string", width: "52%" },
+          { key: "schedule", label: "schedule", type: "string", width: "15%" },
+          { key: "hosts", label: "hosts", type: "string", width: "33%" },
         ]}
         data={[
           {
@@ -367,7 +367,7 @@ function HostsSection() {
   const hosts = SaturdataContent.about.items
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-4xl mx-auto">
       <QueryEditor title="get_crew.sql">
         <div className="space-y-1">
           <div>
