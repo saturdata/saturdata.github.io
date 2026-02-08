@@ -93,7 +93,13 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
           />
           <TreeItem
             icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
-            label="get_latest_episodes.sql"
+            label="get_crew_info.sql"
+            active={activeSection === "about"}
+            onClick={() => onSectionChange("about")}
+          />
+          <TreeItem
+            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
+            label="get_episodes.sql"
             active={activeSection === "episodes"}
             onClick={() => onSectionChange("episodes")}
           />
@@ -102,12 +108,6 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
             label="get_guest_appearances.sql"
             active={activeSection === "guests"}
             onClick={() => onSectionChange("guests")}
-          />
-          <TreeItem
-            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
-            label="get_crew_info.sql"
-            active={activeSection === "about"}
-            onClick={() => onSectionChange("about")}
           />
         </TreeItem>
 
