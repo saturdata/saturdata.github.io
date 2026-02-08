@@ -112,31 +112,6 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
         </TreeItem>
 
         <TreeItem
-          icon={<Database className="h-4 w-4 text-syntax-keyword" />}
-          label="tables"
-          defaultOpen
-        >
-          <TreeItem
-            icon={<Mic className="h-4 w-4 text-syntax-number" />}
-            label="guest_appearances"
-            active={activeSection === "guests"}
-            onClick={() => onSectionChange("guests")}
-          />
-          <TreeItem
-            icon={<Table className="h-4 w-4 text-syntax-function" />}
-            label="episodes"
-            active={activeSection === "episodes"}
-            onClick={() => onSectionChange("episodes")}
-          />
-          <TreeItem
-            icon={<Users className="h-4 w-4 text-syntax-string" />}
-            label="about"
-            active={activeSection === "hosts"}
-            onClick={() => onSectionChange("hosts")}
-          />
-        </TreeItem>
-
-        <TreeItem
           icon={<Headphones className="h-4 w-4 text-syntax-keyword" />}
           label="platforms"
           defaultOpen
@@ -160,17 +135,15 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
       </div>
 
       <div className="border-t border-border p-3">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <Coffee className="h-4 w-4" />
-          <a
-            href="https://buymeacoffee.com/saturdatapod"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-          >
-            Buy us a coffee
-          </a>
-        </div>
+        <a
+          href="https://buymeacoffee.com/saturdatapod"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors group"
+        >
+          <Coffee className="h-4 w-4 group-hover:text-green-500 transition-colors" />
+          <span>Buy us a coffee</span>
+        </a>
       </div>
     </aside>
   )

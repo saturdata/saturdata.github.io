@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { IDESidebar } from "@/components/ide-sidebar"
 import { IDETabs } from "@/components/ide-tabs"
 import { StatusBar } from "@/components/status-bar"
@@ -31,6 +31,76 @@ const tabs = [
 export default function SaturdataPage() {
   const [activeSection, setActiveSection] = useState("home")
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({})
+  const isScrollingToSection = useRef(false)
+
+  // Handle scroll spy - detect which section is currently visible
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current
+    if (!scrollContainer) return
+
+    const handleScroll = () => {
+      if (isScrollingToSection.current) return
+
+      const scrollPosition = scrollContainer.scrollTop
+      const containerHeight = scrollContainer.clientHeight
+
+      // Find the section that's currently most visible in the viewport
+      let currentSection = "home"
+      let maxVisibility = 0
+
+      for (const [sectionId, ref] of Object.entries(sectionRefs.current)) {
+        if (ref) {
+          const rect = ref.getBoundingClientRect()
+          const containerRect = scrollContainer.getBoundingClientRect()
+          
+          // Calculate how much of the section is visible
+          const visibleTop = Math.max(rect.top, containerRect.top)
+          const visibleBottom = Math.min(rect.bottom, containerRect.bottom)
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop)
+          
+          // Use a threshold: section becomes active when it's at least 30% visible
+          // or when its top is within the top 40% of the viewport
+          const relativeTop = rect.top - containerRect.top
+          const isInTopPortion = relativeTop < containerHeight * 0.4 && relativeTop > -rect.height * 0.6
+          
+          if (isInTopPortion && visibleHeight > maxVisibility) {
+            maxVisibility = visibleHeight
+            currentSection = sectionId
+          }
+        }
+      }
+
+      setActiveSection(currentSection)
+    }
+
+    scrollContainer.addEventListener("scroll", handleScroll)
+    // Also check on mount
+    handleScroll()
+    
+    return () => scrollContainer.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Handle clicking on tabs or sidebar to scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const section = sectionRefs.current[sectionId]
+    const scrollContainer = scrollContainerRef.current
+    
+    if (section && scrollContainer) {
+      isScrollingToSection.current = true
+      setActiveSection(sectionId)
+      setSidebarOpen(false)
+
+      // Smooth scroll to section
+      section.scrollIntoView({ behavior: "smooth", block: "start" })
+
+      // Reset the flag after scrolling animation completes
+      setTimeout(() => {
+        isScrollingToSection.current = false
+      }, 1000)
+    }
+  }
 
   return (
     <div className="flex flex-col h-screen bg-background">
@@ -74,10 +144,7 @@ export default function SaturdataPage() {
         >
           <IDESidebar
             activeSection={activeSection}
-            onSectionChange={(section) => {
-              setActiveSection(section)
-              setSidebarOpen(false)
-            }}
+            onSectionChange={scrollToSection}
           />
         </div>
 
@@ -86,14 +153,44 @@ export default function SaturdataPage() {
           <IDETabs
             tabs={tabs}
             activeTab={activeSection}
-            onTabChange={setActiveSection}
+            onTabChange={scrollToSection}
           />
 
-          <div className="flex-1 overflow-auto p-4 md:p-6">
-            {activeSection === "home" && <HomeSection />}
-            {activeSection === "episodes" && <EpisodesSection />}
-            {activeSection === "hosts" && <HostsSection />}
-            {activeSection === "guests" && <GuestsSection />}
+          <div 
+            ref={scrollContainerRef}
+            className="flex-1 overflow-auto scroll-smooth"
+          >
+            <section
+              id="home"
+              ref={(el) => { sectionRefs.current.home = el }}
+              className="min-h-screen py-6 px-4 md:px-6"
+            >
+              <HomeSection />
+            </section>
+
+            <section
+              id="hosts"
+              ref={(el) => { sectionRefs.current.hosts = el }}
+              className="min-h-screen py-6 px-4 md:px-6"
+            >
+              <HostsSection />
+            </section>
+
+            <section
+              id="episodes"
+              ref={(el) => { sectionRefs.current.episodes = el }}
+              className="min-h-screen py-6 px-4 md:px-6"
+            >
+              <EpisodesSection />
+            </section>
+
+            <section
+              id="guests"
+              ref={(el) => { sectionRefs.current.guests = el }}
+              className="min-h-screen py-6 px-4 md:px-6"
+            >
+              <GuestsSection />
+            </section>
           </div>
         </main>
       </div>
@@ -132,7 +229,7 @@ function HomeSection() {
           href="https://www.youtube.com/@SaturdataPod" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-3 mb-4">
             <Youtube className="h-8 w-8 text-destructive" />
@@ -150,7 +247,7 @@ function HomeSection() {
           href="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-3 mb-4">
             <Music className="h-8 w-8 text-primary" />
@@ -168,7 +265,7 @@ function HomeSection() {
           href="https://www.linkedin.com/company/saturdata/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-3 mb-4">
             <Linkedin className="h-8 w-8 text-primary" />
@@ -186,7 +283,7 @@ function HomeSection() {
           href="https://buymeacoffee.com/saturdatapod" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-3 mb-4">
             <Coffee className="h-8 w-8 text-syntax-number" />
@@ -209,7 +306,7 @@ function EpisodesSection() {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
-      <QueryEditor title="get_all_episodes.sql">
+      <QueryEditor title="get_episodes.sql">
         <div className="space-y-1">
           <div>
             <LineNumber>{1}</LineNumber>
@@ -231,7 +328,7 @@ function EpisodesSection() {
       </QueryEditor>
 
       <div className="text-xs text-muted-foreground font-mono px-1">
-        -- {episodes.length} episodes returned
+        -- {episodes.length - 1} episodes returned
       </div>
 
       <div className="space-y-6">

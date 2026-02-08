@@ -19,7 +19,7 @@ interface HostCardProps {
 export function HostCard({ name, pronouns, role, bio, image, socialLinks }: HostCardProps) {
   return (
     <div className="border border-border rounded-md bg-card overflow-hidden flex flex-col h-full">
-      <div className="flex items-start gap-3 px-4 py-4 border-b border-border bg-muted/30">
+      <div className="flex items-start gap-6 px-4 py-4 border-b border-border bg-muted/30">
         {image ? (
           <div className="h-20 w-20 rounded-lg overflow-hidden flex-shrink-0">
             <img
