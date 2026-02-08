@@ -115,7 +115,7 @@ const SaturdataContent = {
                 spotify_link: 'https://open.spotify.com/episode/6q8cO5iCVqc3X279SY2fyQ?si=4da281179e484786'
             },
             {
-                title: 'Unlocking opportunities: the power of LinkedIn networking with Sai Bysani',
+                title: 'Unlocking opportunities: The power of LinkedIn networking with Sai Bysani',
                 type: 'episode',
                 image: 'assets/images/episodes/sai.png',
                 description: 'Sai Bysani shares the LinkedIn strategy that transformed his career. Learn practical tips for content creation, comment strategies, and why starting where you are beats waiting for perfection.',
