@@ -30,6 +30,35 @@ npm run build
 
 This creates a static export in the `out/` directory ready for deployment.
 
+## Deployment to GitHub Pages
+
+This site is configured to automatically deploy to GitHub Pages using GitHub Actions.
+
+### Initial Setup (One-time)
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Settings** > **Pages**
+3. Under **Build and deployment**, set:
+   - **Source**: GitHub Actions
+4. Save the settings
+
+### Automatic Deployment
+
+Once configured, the site will automatically deploy when you push to the `main` branch:
+
+```bash
+git add .
+git commit -m "your commit message"
+git push origin main
+```
+
+The GitHub Actions workflow will:
+1. Build your Next.js site
+2. Export it as static files
+3. Deploy to GitHub Pages
+
+You can monitor the deployment progress in the **Actions** tab of your GitHub repository.
+
 ## Project Structure
 
 ```
