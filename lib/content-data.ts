@@ -1,5 +1,4 @@
 // Content data for Saturdata website
-// TypeScript version with proper type definitions
 
 export interface SocialLink {
   platform: string
@@ -16,7 +15,8 @@ export interface HostMember {
   social_links?: SocialLink[]
 }
 
-export interface Episode {
+// Single interface for both episodes and appearances (identical structure)
+export interface ContentItem {
   title: string
   type: string
   image?: string
@@ -25,34 +25,17 @@ export interface Episode {
   spotify_link: string
 }
 
-export interface Appearance {
-  title: string
+export interface ContentSection<T> {
+  id: string
   type: string
-  image?: string
-  description: string
-  youtube_link: string
-  spotify_link: string
+  title: string
+  items: T[]
 }
 
 export interface ContentData {
-  about: {
-    id: string
-    type: string
-    title: string
-    items: HostMember[]
-  }
-  episodes: {
-    id: string
-    type: string
-    title: string
-    items: Episode[]
-  }
-  appearances: {
-    id: string
-    type: string
-    title: string
-    items: Appearance[]
-  }
+  about: ContentSection<HostMember>
+  episodes: ContentSection<ContentItem>
+  appearances: ContentSection<ContentItem>
 }
 
 export const SaturdataContent: ContentData = {
