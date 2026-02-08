@@ -1,0 +1,178 @@
+"use client"
+
+import React from "react"
+
+import { useState } from "react"
+import {
+  Database,
+  Table,
+  Users,
+  Headphones,
+  Mic,
+  Play,
+  ChevronDown,
+  ChevronRight,
+  Youtube,
+  Music,
+  Coffee,
+  Linkedin,
+} from "lucide-react"
+import { cn } from "@/lib/utils"
+
+interface TreeItemProps {
+  icon: React.ReactNode
+  label: string
+  children?: React.ReactNode
+  defaultOpen?: boolean
+  active?: boolean
+  onClick?: () => void
+}
+
+function TreeItem({ icon, label, children, defaultOpen = false, active, onClick }: TreeItemProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
+  return (
+    <div>
+      <button
+        onClick={() => {
+          if (children) setIsOpen(!isOpen)
+          onClick?.()
+        }}
+        className={cn(
+          "flex w-full items-center gap-2 px-2 py-1.5 text-sm hover:bg-muted rounded transition-colors",
+          active && "bg-muted text-primary"
+        )}
+      >
+        {children ? (
+          isOpen ? (
+            <ChevronDown className="h-3 w-3 text-muted-foreground" />
+          ) : (
+            <ChevronRight className="h-3 w-3 text-muted-foreground" />
+          )
+        ) : (
+          <span className="w-3" />
+        )}
+        {icon}
+        <span className="truncate">{label}</span>
+      </button>
+      {isOpen && children && <div className="ml-4">{children}</div>}
+    </div>
+  )
+}
+
+interface IDESidebarProps {
+  activeSection: string
+  onSectionChange: (section: string) => void
+}
+
+export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) {
+  return (
+    <aside className="w-64 border-r border-border bg-sidebar flex flex-col h-full">
+      <div className="p-3 border-b border-border">
+        <div className="flex items-center gap-2">
+          <Database className="h-5 w-5 text-primary" />
+          <span className="font-mono text-sm font-semibold">saturdata_db</span>
+        </div>
+      </div>
+
+      <div className="flex-1 overflow-auto p-2">
+        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2 py-2">
+          Explorer
+        </div>
+
+        <TreeItem
+          icon={<Play className="h-4 w-4 text-syntax-keyword" />}
+          label="queries"
+          defaultOpen
+        >
+          <TreeItem
+            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
+            label="welcome.sql"
+            active={activeSection === "home"}
+            onClick={() => onSectionChange("home")}
+          />
+          <TreeItem
+            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
+            label="get_latest_episodes.sql"
+            active={activeSection === "episodes"}
+            onClick={() => onSectionChange("episodes")}
+          />
+          <TreeItem
+            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
+            label="get_guest_appearances.sql"
+            active={activeSection === "guests"}
+            onClick={() => onSectionChange("guests")}
+          />
+          <TreeItem
+            icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
+            label="about_the_show.sql"
+            active={activeSection === "about"}
+            onClick={() => onSectionChange("about")}
+          />
+        </TreeItem>
+
+        <TreeItem
+          icon={<Database className="h-4 w-4 text-syntax-keyword" />}
+          label="tables"
+          defaultOpen
+        >
+          <TreeItem
+            icon={<Mic className="h-4 w-4 text-syntax-number" />}
+            label="guest_appearances"
+            active={activeSection === "guests"}
+            onClick={() => onSectionChange("guests")}
+          />
+          <TreeItem
+            icon={<Table className="h-4 w-4 text-syntax-function" />}
+            label="episodes"
+            active={activeSection === "episodes"}
+            onClick={() => onSectionChange("episodes")}
+          />
+          <TreeItem
+            icon={<Users className="h-4 w-4 text-syntax-string" />}
+            label="about"
+            active={activeSection === "hosts"}
+            onClick={() => onSectionChange("hosts")}
+          />
+        </TreeItem>
+
+        <TreeItem
+          icon={<Headphones className="h-4 w-4 text-syntax-keyword" />}
+          label="platforms"
+          defaultOpen
+        >
+          <TreeItem
+            icon={<Youtube className="h-4 w-4 text-destructive" />}
+            label="youtube"
+            onClick={() => window.open("https://www.youtube.com/@saturdatapod", "_blank")}
+          />
+          <TreeItem
+            icon={<Music className="h-4 w-4 text-primary" />}
+            label="spotify"
+            onClick={() => window.open("https://open.spotify.com/show/3j4DFtMxkZ97PbYqpTlpXQ", "_blank")}
+          />
+          <TreeItem
+            icon={<Linkedin className="h-4 w-4 text-blue-600" />}
+            label="linkedin"
+            onClick={() => window.open("https://www.linkedin.com/company/saturdata", "_blank")}
+          />
+        </TreeItem>
+      </div>
+
+      <div className="border-t border-border p-3">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Coffee className="h-4 w-4" />
+          <a
+            href="https://buymeacoffee.com/saturdatapod"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
+            Buy us a coffee
+          </a>
+        </div>
+      </div>
+    </aside>
+  )
+}
+

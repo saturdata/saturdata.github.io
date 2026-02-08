@@ -1,0 +1,393 @@
+"use client"
+
+import { useState } from "react"
+import { IDESidebar } from "@/components/ide-sidebar"
+import { IDETabs } from "@/components/ide-tabs"
+import { StatusBar } from "@/components/status-bar"
+import {
+  QueryEditor,
+  SQLKeyword,
+  SQLString,
+  SQLFunction,
+  SQLComment,
+  LineNumber,
+  SQLNumber,
+} from "@/components/query-editor"
+import { TypingAnimation } from "@/components/typing-animation"
+import { ResultsTable } from "@/components/results-table"
+import { HostCard } from "@/components/host-card"
+import { EpisodeCard } from "@/components/episode-card"
+import { Database, Table, Users, Mic, Youtube, Music, Coffee, Menu, X, Linkedin, Globe } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { SaturdataContent } from "@/lib/content-data"
+
+const tabs = [
+  { id: "home", label: "welcome.sql", icon: <Database className="h-3.5 w-3.5 text-primary" /> },
+  { id: "hosts", label: "about", icon: <Users className="h-3.5 w-3.5 text-syntax-string" /> },
+  { id: "episodes", label: "episodes", icon: <Mic className="h-3.5 w-3.5 text-syntax-function" /> },
+  { id: "guests", label: "guest_appearances", icon: <Table className="h-3.5 w-3.5 text-syntax-number" /> },
+]
+
+export default function SaturdataPage() {
+  const [activeSection, setActiveSection] = useState("home")
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  return (
+    <div className="flex flex-col h-screen bg-background">
+      {/* Mobile Header */}
+      <header className="lg:hidden flex items-center justify-between px-4 py-3 border-b border-border bg-sidebar">
+        <div className="flex items-center gap-2">
+          <Database className="h-5 w-5 text-primary" />
+          <span className="font-mono text-sm font-semibold">saturdata_db</span>
+        </div>
+        <button
+          className="p-2 hover:bg-transparent transition-colors group"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          {sidebarOpen ? (
+            <X className="h-5 w-5 text-foreground group-hover:text-primary transition-colors" />
+          ) : (
+            <Menu className="h-5 w-5 text-foreground group-hover:text-primary transition-colors" />
+          )}
+        </button>
+      </header>
+
+      <div className="flex flex-1 overflow-hidden relative">
+        {/* Mobile Sidebar Overlay */}
+        {sidebarOpen && (
+          <div
+            className="lg:hidden fixed inset-0 bg-background/80 z-40"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        {/* Sidebar */}
+        <div
+          className={`
+            ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+            lg:translate-x-0
+            fixed lg:relative
+            z-50 lg:z-auto
+            h-full
+            transition-transform duration-200
+          `}
+        >
+          <IDESidebar
+            activeSection={activeSection}
+            onSectionChange={(section) => {
+              setActiveSection(section)
+              setSidebarOpen(false)
+            }}
+          />
+        </div>
+
+        {/* Main Content */}
+        <main className="flex-1 flex flex-col overflow-hidden">
+          <IDETabs
+            tabs={tabs}
+            activeTab={activeSection}
+            onTabChange={setActiveSection}
+          />
+
+          <div className="flex-1 overflow-auto p-4 md:p-6">
+            {activeSection === "home" && <HomeSection />}
+            {activeSection === "episodes" && <EpisodesSection />}
+            {activeSection === "hosts" && <HostsSection />}
+            {activeSection === "guests" && <GuestsSection />}
+          </div>
+        </main>
+      </div>
+
+      <StatusBar />
+    </div>
+  )
+}
+
+function HomeSection() {
+  return (
+    <div className="space-y-6 max-w-4xl mx-auto">
+      <QueryEditor title="welcome.sql">
+        <TypingAnimation speed={40} />
+      </QueryEditor>
+
+      <ResultsTable
+        title="Query results"
+        rowCount={1}
+        columns={[
+          { key: "mission", label: "mission", type: "string", width: "50%" },
+          { key: "schedule", label: "schedule", type: "string", width: "20%" },
+          { key: "hosts", label: "hosts", type: "string", width: "30%" },
+        ]}
+        data={[
+          {
+            mission: "Humanizing the data world for the next generation",
+            schedule: "Saturdays",
+            hosts: "{Shifra Williams, Sam LaFell}",
+          },
+        ]}
+      />
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <a 
+          href="https://www.youtube.com/@SaturdataPod" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Youtube className="h-8 w-8 text-destructive" />
+            <div>
+              <h3 className="font-semibold text-foreground">YouTube</h3>
+              <p className="text-xs text-muted-foreground font-mono">Watch & subscribe</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Watch full episodes with video, tutorials, and visual explanations.
+          </p>
+        </a>
+
+        <a 
+          href="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Music className="h-8 w-8 text-primary" />
+            <div>
+              <h3 className="font-semibold text-foreground">Spotify</h3>
+              <p className="text-xs text-muted-foreground font-mono">Listen & follow</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Listen on the go with audio episodes perfect for your commute or morning routine.
+          </p>
+        </a>
+
+        <a 
+          href="https://www.linkedin.com/company/saturdata/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Linkedin className="h-8 w-8 text-primary" />
+            <div>
+              <h3 className="font-semibold text-foreground">LinkedIn</h3>
+              <p className="text-xs text-muted-foreground font-mono">Connect with us</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Follow Saturdata for updates, behind-the-scenes content, and community discussions.
+          </p>
+        </a>
+
+        <a 
+          href="https://buymeacoffee.com/saturdatapod" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card p-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Coffee className="h-8 w-8 text-syntax-number" />
+            <div>
+              <h3 className="font-semibold text-foreground">Support the show</h3>
+              <p className="text-xs text-muted-foreground font-mono">Buy us a coffee</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Love the podcast? Buy us a coffee to help keep the data conversations going!
+          </p>
+        </a>
+      </div>
+    </div>
+  )
+}
+
+function EpisodesSection() {
+  const episodes = SaturdataContent.episodes.items
+
+  return (
+    <div className="space-y-6 max-w-4xl mx-auto">
+      <QueryEditor title="get_all_episodes.sql">
+        <div className="space-y-1">
+          <div>
+            <LineNumber>{1}</LineNumber>
+            <SQLKeyword>SELECT</SQLKeyword> title, description, youtube_url, spotify_url
+          </div>
+          <div>
+            <LineNumber>{2}</LineNumber>
+            <SQLKeyword>FROM</SQLKeyword> podcast.episodes
+          </div>
+          <div>
+            <LineNumber>{3}</LineNumber>
+            <SQLKeyword>WHERE</SQLKeyword> season = <SQLNumber>0</SQLNumber>
+          </div>
+          <div>
+            <LineNumber>{4}</LineNumber>
+            <SQLKeyword>ORDER BY</SQLKeyword> release_date <SQLKeyword>DESC</SQLKeyword>;
+          </div>
+        </div>
+      </QueryEditor>
+
+      <div className="text-xs text-muted-foreground font-mono px-1">
+        -- {episodes.length} episodes returned
+      </div>
+
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 px-1">
+          <div className="h-px flex-1 bg-border"></div>
+          <h2 className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Season 0</h2>
+          <div className="h-px flex-1 bg-border"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {episodes.slice(0, -1).map((episode) => (
+            <EpisodeCard
+              key={episode.title}
+              title={episode.title}
+              description={episode.description}
+              youtubeUrl={episode.youtube_link}
+              spotifyUrl={episode.spotify_link}
+              imageUrl={episode.image}
+            />
+          ))}
+          <EpisodeCard
+            title="More episodes coming soon"
+            description="We're just getting started! New episodes dropping on terminal mastery, SQL fundamentals, Python essentials, performance optimization, and AI safety. Subscribe to stay updated on technical deep-dives, career guidance, and special guest appearances."
+            youtubeUrl="https://www.youtube.com/@SaturdataPod"
+            spotifyUrl="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo"
+            imageUrl="assets/images/logos/saturdata.png"
+            isComingSoon
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function HostsSection() {
+  const hosts = SaturdataContent.about.items
+
+  return (
+    <div className="space-y-6 max-w-7xl mx-auto">
+      <QueryEditor title="get_crew.sql">
+        <div className="space-y-1">
+          <div>
+            <LineNumber>{1}</LineNumber>
+            <SQLKeyword>SELECT</SQLKeyword> name, pronouns, role, bio
+          </div>
+          <div>
+            <LineNumber>{2}</LineNumber>
+            <SQLKeyword>FROM</SQLKeyword> podcast.crew
+          </div>
+          <div>
+            <LineNumber>{3}</LineNumber>
+            <SQLKeyword>UNION ALL</SQLKeyword>
+          </div>
+          <div>
+            <LineNumber>{4}</LineNumber>
+            <SQLKeyword>SELECT</SQLKeyword> name, pronouns, role, bio
+          </div>
+          <div>
+            <LineNumber>{5}</LineNumber>
+            <SQLKeyword>FROM</SQLKeyword> podcast.production_team;
+          </div>
+        </div>
+      </QueryEditor>
+
+      <div className="text-xs text-muted-foreground font-mono px-1">
+        -- {hosts.length} crew members returned
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {hosts.map((host) => (
+          <HostCard
+            key={host.name}
+            name={host.name}
+            pronouns={host.pronouns}
+            role={host.title}
+            bio={host.description}
+            image={host.image}
+            socialLinks={host.social_links}
+          />
+        ))}
+        
+        <HostCard
+          name="Saturdata"
+          pronouns=""
+          role="Podcast"
+          bio="Saturdata is the community-driven podcast humanizing the data world for the next generation of analysts, scientists, and engineers. Join hosts Shifra Williams and Sam LaFell every weekend as they break down both the career journey and the technical foundations that matter. <br></br> From navigating interviews to mastering SQL, Python, terminal basics, and understanding AI safety, Saturdata covers the full stack of becoming a successful data professional."
+          image="assets/images/about/saturdata_square.png"
+          socialLinks={[
+            {
+              platform: 'linkedin',
+              url: 'https://www.linkedin.com/company/saturdata',
+              label: 'Saturdata LinkedIn'
+            },
+            {
+              platform: 'website',
+              url: 'https://saturdata.github.io',
+              label: 'Saturdata Website'
+            }
+          ]}
+        />
+      </div>
+    </div>
+  )
+}
+
+function GuestsSection() {
+  const appearances = SaturdataContent.appearances.items
+
+  return (
+    <div className="space-y-6 max-w-4xl mx-auto">
+      <QueryEditor title="get_guest_appearances.sql">
+        <div className="space-y-1">
+          <div>
+            <LineNumber>{1}</LineNumber>
+            <SQLComment>-- Episodes where our crew appeared as guests</SQLComment>
+          </div>
+          <div>
+            <LineNumber>{2}</LineNumber>
+            <SQLKeyword>SELECT</SQLKeyword> show_name, title, description
+          </div>
+          <div>
+            <LineNumber>{3}</LineNumber>
+            <SQLKeyword>FROM</SQLKeyword> podcast.guest_appearances
+          </div>
+          <div>
+            <LineNumber>{4}</LineNumber>
+            <SQLKeyword>WHERE</SQLKeyword> crew_id <SQLKeyword>IN</SQLKeyword> (
+          </div>
+          <div>
+            <LineNumber>{5}</LineNumber>
+            {"    "}<SQLKeyword>SELECT</SQLKeyword> id <SQLKeyword>FROM</SQLKeyword> podcast.crew
+          </div>
+          <div>
+            <LineNumber>{6}</LineNumber>
+            );
+          </div>
+        </div>
+      </QueryEditor>
+
+      <div className="text-xs text-muted-foreground font-mono px-1">
+        -- {appearances.length} appearances returned
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {appearances.map((appearance) => (
+          <EpisodeCard
+            key={appearance.title}
+            title={appearance.title}
+            description={appearance.description}
+            youtubeUrl={appearance.youtube_link}
+            spotifyUrl={appearance.spotify_link}
+            imageUrl={appearance.image}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
