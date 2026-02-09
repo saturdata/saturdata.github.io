@@ -10,7 +10,7 @@ export function StatusBar() {
         </div>
         <div className="flex items-center gap-1.5">
           <CheckCircle className="h-3 w-3 text-primary" />
-          <span>Connected</span>
+          <span className="hidden md:inline">Connected</span>
         </div>
       </div>
       <div className="flex items-center gap-4">
