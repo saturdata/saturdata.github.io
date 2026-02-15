@@ -95,10 +95,43 @@ export default function SaturdataPage() {
       // Smooth scroll to section
       section.scrollIntoView({ behavior: "smooth", block: "start" })
 
-      // Reset the flag after scrolling animation completes
-      setTimeout(() => {
-        isScrollingToSection.current = false
-      }, 1000)
+      // Detect when scrolling actually ends by checking if scroll position stabilizes
+      let lastScrollTop = scrollContainer.scrollTop
+      let scrollCheckCount = 0
+      const maxChecks = 50 // Maximum 2.5 seconds (50 * 50ms)
+      
+      const checkScrollEnd = () => {
+        if (!scrollContainer) {
+          isScrollingToSection.current = false
+          return
+        }
+        
+        const currentScrollTop = scrollContainer.scrollTop
+        
+        // If scroll position hasn't changed, scrolling has ended
+        if (Math.abs(currentScrollTop - lastScrollTop) < 1) {
+          scrollCheckCount++
+          // Wait for 2 consecutive stable checks to be sure
+          if (scrollCheckCount >= 2) {
+            isScrollingToSection.current = false
+            return
+          }
+        } else {
+          scrollCheckCount = 0
+        }
+        
+        lastScrollTop = currentScrollTop
+        
+        // Continue checking if we haven't reached max checks
+        if (scrollCheckCount < 2 && maxChecks > 0) {
+          setTimeout(checkScrollEnd, 50)
+        } else {
+          isScrollingToSection.current = false
+        }
+      }
+      
+      // Start checking after a short delay
+      setTimeout(checkScrollEnd, 50)
     }
   }
 

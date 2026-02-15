@@ -94,8 +94,8 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
           <TreeItem
             icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
             label="get_crew_info.sql"
-            active={activeSection === "about"}
-            onClick={() => onSectionChange("about")}
+            active={activeSection === "hosts"}
+            onClick={() => onSectionChange("hosts")}
           />
           <TreeItem
             icon={<span className="text-xs text-muted-foreground font-mono">SQL</span>}
