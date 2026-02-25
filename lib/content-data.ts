@@ -89,7 +89,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Hello world: welcome to Saturdata',
         type: 'episode',
-        image: '/assets/images/episodes/hello-world.png',
+        image: '/assets/images/episodes/season-0/hello-world.png',
         description: 'Join hosts Shifra Williams and Sam LaFell as they introduce Saturdata - your weekend data community. Learn about their backgrounds, the mission of the podcast, and what you can expect from future episodes as they humanize the data world for the next generation.',
         youtube_link: 'https://youtu.be/pBvuqiyRIG8?si=HHX52WFaXHms7UlF',
         spotify_link: 'https://open.spotify.com/episode/59Ji4HMwEV4CzxkOvACQgX?si=lSWD-wstSAm-_fVuwEYhGA'
@@ -97,7 +97,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Day in the life of a data engineer',
         type: 'episode',
-        image: '/assets/images/episodes/ditl-data-eng.png',
+        image: '/assets/images/episodes/season-0/ditl-data-eng.png',
         description: 'Join hosts Sam and Shifra as they explore the realities of data roles. Sam discusses a day in the life of a data engineer. From the glamorous perceptions to the day-to-day challenges, they discuss the skills, stakeholders, and the importance of understanding the "why" behind data projects.',
         youtube_link: 'https://www.youtube.com/watch?v=HI0jUmXiEgQ',
         spotify_link: 'https://open.spotify.com/episode/5zxJxAz57GOWCqieeiuZzf?si=6a094e38dec3408f'
@@ -105,7 +105,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Day in the life of a data scientist',
         type: 'episode',
-        image: '/assets/images/episodes/ditl-data-sci.png',
+        image: '/assets/images/episodes/season-0/ditl-data-sci.png',
         description: 'Join hosts Sam and Shifra as they explore what it really means to be a data scientist. From building predictive models to translating complex insights for stakeholders, they discuss the balance between ad hoc requests, dashboard creation, and meaningful machine learning work.',
         youtube_link: 'https://youtu.be/jrP-U7-0gAk?feature=shared',
         spotify_link: 'https://open.spotify.com/episode/1cAy3QmwP6PIwI5JLg3Eus?si=d8ecc591eea34a3a'
@@ -113,7 +113,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Data interviews: From ghosting to guidance',
         type: 'episode',
-        image: '/assets/images/episodes/interviews-1.png',
+        image: '/assets/images/episodes/season-0/interviews-1.png',
         description: 'Interviews don\'t have to suck! Join Sam and Shifra as they break down everything you need to know about data career interviews. From the good and the bad to the downright ridiculous, they share real talk about what actually works in the interview process.',
         youtube_link: 'https://youtu.be/2hwU_jBwQZs?feature=shared',
         spotify_link: 'https://open.spotify.com/episode/5QkUuMrzBL1lDCoJAldLtC?si=8bcc9f9647124157'
@@ -121,7 +121,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Data interviews: The good, the bad, and the hilarious',
         type: 'episode',
-        image: '/assets/images/episodes/interviews-2.png',
+        image: '/assets/images/episodes/season-0/interviews-2.png',
         description: 'If we didn\'t get the job, at least we got a story out of it! Join Sam and Shifra as they break down the most popular interview questions, the wildest interview stories, and the benefits of the Zumba council. Maybe the real interviews were the friends we made along the way?',
         youtube_link: 'https://youtu.be/_EB-kWDrjtM',
         spotify_link: 'https://open.spotify.com/episode/6q8cO5iCVqc3X279SY2fyQ?si=4da281179e484786'
@@ -129,7 +129,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
       {
         title: 'Unlocking opportunities: The power of LinkedIn networking with Sai Bysani',
         type: 'episode',
-        image: '/assets/images/episodes/sai.png',
+        image: '/assets/images/episodes/season-0/sai.png',
         description: 'Sai Bysani shares the LinkedIn strategy that transformed his career. Learn practical tips for content creation, comment strategies, and why starting where you are beats waiting for perfection.',
         youtube_link: 'https://www.youtube.com/watch?v=Xt559oTBuMk',
         spotify_link: 'https://open.spotify.com/episode/1TxKPQNad3KX26RdF8aZtd?si=b9a5999af7c54f3b',
