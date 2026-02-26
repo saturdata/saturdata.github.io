@@ -1,6 +1,21 @@
 import { Play, Youtube, Music } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+function renderDescription(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (match) {
+      return (
+        <a key={i} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
+          {match[1]}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
 interface EpisodeCardProps {
   title: string
   description: string
@@ -42,7 +57,7 @@ export function EpisodeCard({
       </div>
       <div className="p-4 flex flex-col flex-1">
         <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-          {description}
+          {renderDescription(description)}
         </p>
         <div className="flex items-center gap-2 mt-4">
           {youtubeUrl && (

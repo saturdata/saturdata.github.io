@@ -337,12 +337,22 @@ function HomeSection() {
 function EpisodesSection() {
   const allEpisodes = SaturdataContent.episodes.items
 
-  const releasedEpisodes = useMemo(() => {
+  const { season0Episodes, season1Episodes, comingSoon } = useMemo(() => {
     const now = new Date()
-    return allEpisodes
-      .slice(0, -1)
-      .filter(ep => !ep.schedule_release || new Date(ep.schedule_release) <= now)
+    const released = allEpisodes.filter(ep => ep.title !== 'More episodes coming soon' && (!ep.schedule_release || new Date(ep.schedule_release) <= now))
+    const comingSoon = allEpisodes.find(ep => ep.title === 'More episodes coming soon')
+    return {
+      season0Episodes: released.filter(ep => ep.season === 0).reverse(),
+      season1Episodes: released.filter(ep => ep.season === 1).sort((a, b) => {
+        const aTime = a.schedule_release ? new Date(a.schedule_release).getTime() : 0
+        const bTime = b.schedule_release ? new Date(b.schedule_release).getTime() : 0
+        return bTime - aTime
+      }),
+      comingSoon,
+    }
   }, [allEpisodes])
+
+  const totalEpisodes = season0Episodes.length + season1Episodes.length
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
@@ -358,45 +368,66 @@ function EpisodesSection() {
           </div>
           <div>
             <LineNumber>{3}</LineNumber>
-            <SQLKeyword>WHERE</SQLKeyword> season = <SQLNumber>0</SQLNumber>
-          </div>
-          <div>
-            <LineNumber>{4}</LineNumber>
-            <SQLKeyword>ORDER BY</SQLKeyword> release_date <SQLKeyword>DESC</SQLKeyword>;
+            <SQLKeyword>ORDER BY</SQLKeyword> season, release_date <SQLKeyword>DESC</SQLKeyword>;
           </div>
         </div>
       </QueryEditor>
 
       <div className="text-xs text-muted-foreground font-mono px-1">
-        -- {releasedEpisodes.length} episodes returned
+        -- {totalEpisodes} episodes returned
       </div>
 
-      <div className="space-y-6">
-        <div className="flex items-center gap-3 px-1">
-          <div className="h-px flex-1 bg-border"></div>
-          <h2 className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Season 0</h2>
-          <div className="h-px flex-1 bg-border"></div>
+      <div className="space-y-10">
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 px-1">
+            <div className="h-px flex-1 bg-border"></div>
+            <h2 className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Season 1</h2>
+            <div className="h-px flex-1 bg-border"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {season1Episodes.map((episode) => (
+              <EpisodeCard
+                key={episode.title}
+                title={episode.title}
+                description={episode.description}
+                youtubeUrl={episode.youtube_link}
+                spotifyUrl={episode.spotify_link}
+                imageUrl={episode.image}
+              />
+            ))}
+            {comingSoon && (
+              <EpisodeCard
+                title={comingSoon.title}
+                description={comingSoon.description}
+                youtubeUrl={comingSoon.youtube_link}
+                spotifyUrl={comingSoon.spotify_link}
+                imageUrl={comingSoon.image}
+                isComingSoon
+              />
+            )}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          {releasedEpisodes.map((episode) => (
-            <EpisodeCard
-              key={episode.title}
-              title={episode.title}
-              description={episode.description}
-              youtubeUrl={episode.youtube_link}
-              spotifyUrl={episode.spotify_link}
-              imageUrl={episode.image}
-            />
-          ))}
-          <EpisodeCard
-            title="More episodes coming soon"
-            description="We're just getting started! New episodes dropping on terminal mastery, SQL fundamentals, Python essentials, performance optimization, and AI safety. Subscribe to stay updated on technical deep-dives, career guidance, and special guest appearances."
-            youtubeUrl="https://www.youtube.com/@SaturdataPod"
-            spotifyUrl="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo"
-            imageUrl="assets/images/logos/saturdata.png"
-            isComingSoon
-          />
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 px-1">
+            <div className="h-px flex-1 bg-border"></div>
+            <h2 className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Season 0</h2>
+            <div className="h-px flex-1 bg-border"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {season0Episodes.map((episode) => (
+              <EpisodeCard
+                key={episode.title}
+                title={episode.title}
+                description={episode.description}
+                youtubeUrl={episode.youtube_link}
+                spotifyUrl={episode.spotify_link}
+                imageUrl={episode.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
