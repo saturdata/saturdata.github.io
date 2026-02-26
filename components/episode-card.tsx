@@ -21,7 +21,6 @@ interface EpisodeCardProps {
   description: string
   youtubeUrl?: string
   spotifyUrl?: string
-  isComingSoon?: boolean
   imageUrl?: string
 }
 
@@ -30,7 +29,6 @@ export function EpisodeCard({
   description,
   youtubeUrl,
   spotifyUrl,
-  isComingSoon,
   imageUrl,
 }: EpisodeCardProps) {
   return (
@@ -49,11 +47,6 @@ export function EpisodeCard({
           <Play className="h-4 w-4 text-primary flex-shrink-0" />
           <span className="font-mono text-sm text-foreground">{title}</span>
         </div>
-        {isComingSoon && (
-          <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded font-mono flex-shrink-0">
-            SOON
-          </span>
-        )}
       </div>
       <div className="p-4 flex flex-col flex-1">
         <p className="text-sm text-muted-foreground leading-relaxed flex-1">

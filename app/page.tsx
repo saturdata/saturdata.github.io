@@ -403,7 +403,6 @@ function EpisodesSection() {
                 youtubeUrl={comingSoon.youtube_link}
                 spotifyUrl={comingSoon.spotify_link}
                 imageUrl={comingSoon.image}
-                isComingSoon
               />
             )}
           </div>
