@@ -18,6 +18,7 @@ export interface ContentItem {
   description: string
   youtube_link: string
   spotify_link: string
+  schedule_release?: string  // ISO 8601 with UTC offset, e.g. "2025-03-01T09:00:00-08:00"
 }
 
 export interface ContentSection<T> {
@@ -140,8 +141,8 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         image: '/assets/images/logos/saturdata.png',
         description: 'We\'re just getting started! New episodes dropping on terminal mastery, SQL fundamentals, Python essentials, performance optimization, and AI safety. Subscribe to stay updated on technical deep-dives, career guidance, and special guest appearances.',
         youtube_link: 'https://www.youtube.com/@SaturdataPod',
-        spotify_link: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo'
-      }
+        spotify_link: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo',
+      },
     ]
   },
 

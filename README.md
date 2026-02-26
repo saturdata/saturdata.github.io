@@ -83,6 +83,24 @@ You can monitor the deployment progress in the **Actions** tab of your GitHub re
     └── favicons/      # Favicons
 ```
 
+## Adding Episodes
+
+Episode content lives in `lib/content-data.ts`. To schedule an episode for a future release, add a `schedule_release` field with an ISO 8601 timestamp. The episode will be completely hidden until that date and time, then appear automatically for visitors without any code change or redeployment.
+
+```typescript
+{
+  title: 'Episode Title',
+  type: 'episode',
+  image: '/assets/images/episodes/season-1/episode.png',
+  description: 'Episode description...',
+  youtube_link: 'https://youtu.be/...',
+  spotify_link: 'https://open.spotify.com/episode/...',
+  schedule_release: '2026-04-05T09:00:00-07:00'  // 9 AM PDT; omit field to publish immediately
+}
+```
+
+Use `-08:00` for PST (Nov–Mar) and `-07:00` for PDT (Mar–Nov). Episodes without a `schedule_release` field are always visible. The deploy workflow also runs a daily rebuild at midnight PST so static HTML stays current for search bots.
+
 ## Tech Stack
 
 - **Framework**: Next.js 16

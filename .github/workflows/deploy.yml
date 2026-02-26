@@ -5,6 +5,10 @@ on:
   push:
     branches: ["main"]
 
+  # Daily rebuild to publish any scheduled episodes
+  schedule:
+    - cron: '0 8 * * *'   # Daily at midnight PST (UTC-8)
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 

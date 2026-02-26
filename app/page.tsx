@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo } from "react"
 import { IDESidebar } from "@/components/ide-sidebar"
 import { IDETabs } from "@/components/ide-tabs"
 import { StatusBar } from "@/components/status-bar"
@@ -335,7 +335,14 @@ function HomeSection() {
 }
 
 function EpisodesSection() {
-  const episodes = SaturdataContent.episodes.items
+  const allEpisodes = SaturdataContent.episodes.items
+
+  const releasedEpisodes = useMemo(() => {
+    const now = new Date()
+    return allEpisodes
+      .slice(0, -1)
+      .filter(ep => !ep.schedule_release || new Date(ep.schedule_release) <= now)
+  }, [allEpisodes])
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
@@ -361,7 +368,7 @@ function EpisodesSection() {
       </QueryEditor>
 
       <div className="text-xs text-muted-foreground font-mono px-1">
-        -- {episodes.length - 1} episodes returned
+        -- {releasedEpisodes.length} episodes returned
       </div>
 
       <div className="space-y-6">
@@ -372,7 +379,7 @@ function EpisodesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
-          {episodes.slice(0, -1).map((episode) => (
+          {releasedEpisodes.map((episode) => (
             <EpisodeCard
               key={episode.title}
               title={episode.title}
