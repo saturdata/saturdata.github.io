@@ -178,7 +178,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         season: 1,
         image: '/assets/images/episodes/season-1/data_viz_and_storytelling.png',
         description: 'Your chart is full of information. So why does no one know what it means? Sam and Shifra break down everything you need to know about data visualization and storytelling, from picking the right Python library to presenting charts your exec will actually understand. Spoiler: the pie chart doesn\'t make it out alive.',
-        youtube_link: 'https://youtu.be/2n0SgV0gzCE',
+        youtube_link: 'https://youtu.be/Znvt0mSDvNo',
         spotify_link: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo',
         schedule_release: '2026-03-21T08:00:00-07:00' 
       },
