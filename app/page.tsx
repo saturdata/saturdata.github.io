@@ -135,24 +135,26 @@ export default function SaturdataPage() {
     }
   }
 
+  const activeTabLabel = tabs.find(t => t.id === activeSection)?.label ?? activeSection
+
   return (
     <div className="flex flex-col h-screen bg-background">
       {/* Mobile Header */}
-      <header className="lg:hidden flex items-center justify-between px-4 py-3 border-b border-border bg-sidebar">
-        <div className="flex items-center gap-2">
-          <Database className="h-5 w-5 text-primary" />
-          <span className="font-mono text-sm font-semibold">saturdata_db</span>
-        </div>
+      <header className="lg:hidden flex items-center gap-3 px-4 border-b border-border bg-sidebar" style={{ height: '44px', flexShrink: 0 }}>
         <button
-          className="p-2 hover:bg-transparent transition-colors group"
+          className="p-1 hover:bg-muted/50 rounded transition-colors text-muted-foreground flex items-center justify-center flex-shrink-0"
           onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label="Toggle sidebar"
         >
           {sidebarOpen ? (
-            <X className="h-5 w-5 text-foreground group-hover:text-primary transition-colors" />
+            <X className="h-[18px] w-[18px]" />
           ) : (
-            <Menu className="h-5 w-5 text-foreground group-hover:text-primary transition-colors" />
+            <Menu className="h-[18px] w-[18px]" />
           )}
         </button>
+        <span className="font-mono text-[0.8rem] text-sidebar-foreground/80">
+          saturdata_db / {activeTabLabel}.sql
+        </span>
       </header>
 
       <div className="flex flex-1 overflow-hidden relative">
