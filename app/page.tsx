@@ -17,7 +17,7 @@ import { TypingAnimation } from "@/components/typing-animation"
 import { ResultsTable } from "@/components/results-table"
 import { HostCard } from "@/components/host-card"
 import { EpisodeCard } from "@/components/episode-card"
-import { Database, Table, Users, Mic, Youtube, Music, Coffee, Menu, X, Linkedin, Globe } from "lucide-react"
+import { Database, Table, Users, Mic, Youtube, Music, Coffee, Linkedin, Globe, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SaturdataContent } from "@/lib/content-data"
 
@@ -183,11 +183,13 @@ export default function SaturdataPage() {
 
         {/* Main Content */}
         <main className="flex-1 flex flex-col overflow-hidden">
-          <IDETabs
-            tabs={tabs}
-            activeTab={activeSection}
-            onTabChange={scrollToSection}
-          />
+          <div className="hidden lg:block">
+            <IDETabs
+              tabs={tabs}
+              activeTab={activeSection}
+              onTabChange={scrollToSection}
+            />
+          </div>
 
           <div 
             ref={scrollContainerRef}
