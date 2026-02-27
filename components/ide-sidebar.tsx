@@ -131,19 +131,12 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
             label="linkedin"
             onClick={() => window.open("https://www.linkedin.com/company/saturdata", "_blank")}
           />
+          <TreeItem
+            icon={<Coffee className="h-4 w-4 text-green-500" />}
+            label="buy us a coffee"
+            onClick={() => window.open("https://buymeacoffee.com/saturdatapod", "_blank")}
+          />
         </TreeItem>
-      </div>
-
-      <div className="border-t border-border p-3">
-        <a
-          href="https://buymeacoffee.com/saturdatapod"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors group"
-        >
-          <Coffee className="h-4 w-4 group-hover:text-green-500 transition-colors" />
-          <span>Buy us a coffee</span>
-        </a>
       </div>
     </aside>
   )
