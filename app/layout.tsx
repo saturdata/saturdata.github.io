@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Saturdata - The data community podcast',
+  title: 'Saturdata | The data community podcast',
   description: 'Humanizing the data world for the next generation of analysts, scientists, and engineers. Join hosts Shifra Williams and Sam LaFell every weekend.',
   generator: 'Next.js',
   metadataBase: new URL('https://saturdata.github.io'),
