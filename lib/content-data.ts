@@ -46,7 +46,7 @@ export const SaturdataContent: ContentData = {
         name: 'Shifra Williams',
         pronouns: 'she/they',
         title: 'Co-host',
-        image: '/assets/images/about/shif.jpeg',
+        image: '/assets/images/about/shif.png',
         description: `Shifra is a Developer Relations Engineer and Data Scientist whose career has been defined by one core mission: making complex technical concepts click for real people.
 Their journey spans data science, technical writing, and community building, all tied together by her passion for creating those crucial "aha!" moments that transform confusion into confidence.
 <br/><br/>
