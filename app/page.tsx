@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button"
 import { SaturdataContent } from "@/lib/content-data"
 
 const tabs = [
-  { id: "home", label: "welcome", icon: <Database className="h-3.5 w-3.5 text-primary" /> },
+  { id: "home", label: "home", icon: <Database className="h-3.5 w-3.5 text-primary" /> },
   { id: "hosts", label: "about", icon: <Users className="h-3.5 w-3.5 text-syntax-string" /> },
   { id: "episodes", label: "episodes", icon: <Mic className="h-3.5 w-3.5 text-syntax-function" /> },
   { id: "guests", label: "guest_appearances", icon: <Table className="h-3.5 w-3.5 text-syntax-number" /> },
@@ -236,7 +236,7 @@ export default function SaturdataPage() {
 function HomeSection() {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
-      <QueryEditor title="welcome.sql">
+      <QueryEditor title="home.sql">
         <TypingAnimation speed={40} />
       </QueryEditor>
 
