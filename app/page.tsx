@@ -17,6 +17,7 @@ import { TypingAnimation } from "@/components/typing-animation"
 import { ResultsTable } from "@/components/results-table"
 import { HostCard } from "@/components/host-card"
 import { EpisodeCard } from "@/components/episode-card"
+import { RssPlayerEmbed } from "@/components/rss-player-embed"
 import { Database, Table, Users, Mic, Youtube, Music, Coffee, Linkedin, Globe, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SaturdataContent } from "@/lib/content-data"
@@ -380,6 +381,8 @@ function EpisodesSection() {
       <div className="text-xs text-muted-foreground font-mono px-1">
         -- {totalEpisodes} episodes returned
       </div>
+
+      <RssPlayerEmbed />
 
       <div className="space-y-10">
         <div className="space-y-6">
