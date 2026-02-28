@@ -18,7 +18,7 @@ import { ResultsTable } from "@/components/results-table"
 import { HostCard } from "@/components/host-card"
 import { EpisodeCard } from "@/components/episode-card"
 import { RssPlayerEmbed } from "@/components/rss-player-embed"
-import { Database, Table, Users, Mic, Youtube, Music, Coffee, Linkedin, Globe, Menu, X } from "lucide-react"
+import { Database, Table, Users, Mic, Youtube, Music, Coffee, Linkedin, Globe, Menu, X, Podcast } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SaturdataContent } from "@/lib/content-data"
 
@@ -282,7 +282,7 @@ function HomeSection() {
         </a>
 
         <a 
-          href="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo" 
+          href="https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo?si=783ac20bae724144"
           target="_blank" 
           rel="noopener noreferrer"
           className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
@@ -299,9 +299,27 @@ function HomeSection() {
           </p>
         </a>
 
-        <a 
-          href="https://www.linkedin.com/company/saturdata/" 
-          target="_blank" 
+        <a
+          href="https://podcasts.apple.com/us/podcast/saturdata/id1878774351"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Podcast className="h-8 w-8 text-purple-500" />
+            <div>
+              <h3 className="font-semibold text-foreground">Apple Podcasts</h3>
+              <p className="text-xs text-muted-foreground font-mono">Listen & subscribe</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Subscribe on Apple Podcasts and never miss an episode, right from your iPhone or Mac.
+          </p>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/saturdata/"
+          target="_blank"
           rel="noopener noreferrer"
           className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
         >
@@ -400,6 +418,7 @@ function EpisodesSection() {
                 description={episode.description}
                 youtubeUrl={episode.youtube_link}
                 spotifyUrl={episode.spotify_link}
+                appleUrl={episode.apple_link}
                 imageUrl={episode.image}
               />
             ))}
@@ -409,6 +428,7 @@ function EpisodesSection() {
                 description={comingSoon.description}
                 youtubeUrl={comingSoon.youtube_link}
                 spotifyUrl={comingSoon.spotify_link}
+                appleUrl={comingSoon.apple_link}
                 imageUrl={comingSoon.image}
               />
             )}
@@ -430,6 +450,7 @@ function EpisodesSection() {
                 description={episode.description}
                 youtubeUrl={episode.youtube_link}
                 spotifyUrl={episode.spotify_link}
+                appleUrl={episode.apple_link}
                 imageUrl={episode.image}
               />
             ))}
@@ -548,6 +569,7 @@ function GuestsSection() {
             description={appearance.description}
             youtubeUrl={appearance.youtube_link}
             spotifyUrl={appearance.spotify_link}
+            appleUrl={appearance.apple_link}
             imageUrl={appearance.image}
           />
         ))}

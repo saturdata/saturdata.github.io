@@ -1,4 +1,4 @@
-import { Play, Youtube, Music } from "lucide-react"
+import { Play, Youtube, Music, Podcast } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 function renderDescription(text: string) {
@@ -21,6 +21,7 @@ interface EpisodeCardProps {
   description: string
   youtubeUrl?: string
   spotifyUrl?: string
+  appleUrl?: string
   imageUrl?: string
 }
 
@@ -29,6 +30,7 @@ export function EpisodeCard({
   description,
   youtubeUrl,
   spotifyUrl,
+  appleUrl,
   imageUrl,
 }: EpisodeCardProps) {
   return (
@@ -76,6 +78,19 @@ export function EpisodeCard({
               <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
                 <Music className="h-4 w-4 text-primary" />
                 Listen
+              </a>
+            </Button>
+          )}
+          {appleUrl && (
+            <Button
+              variant="outline"
+              size="default"
+              className="gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
+              asChild
+            >
+              <a href={appleUrl} target="_blank" rel="noopener noreferrer">
+                <Podcast className="h-4 w-4 text-purple-500" />
+                Apple
               </a>
             </Button>
           )}

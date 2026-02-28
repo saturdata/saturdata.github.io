@@ -16,6 +16,7 @@ import {
   Music,
   Coffee,
   Linkedin,
+  Podcast,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -124,7 +125,12 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
           <TreeItem
             icon={<Music className="h-4 w-4 text-primary" />}
             label="spotify"
-            onClick={() => window.open("https://open.spotify.com/show/3j4DFtMxkZ97PbYqpTlpXQ", "_blank")}
+            onClick={() => window.open("https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo?si=783ac20bae724144", "_blank")}
+          />
+          <TreeItem
+            icon={<Podcast className="h-4 w-4 text-purple-500" />}
+            label="apple podcasts"
+            onClick={() => window.open("https://podcasts.apple.com/us/podcast/saturdata/id1878774351", "_blank")}
           />
           <TreeItem
             icon={<Linkedin className="h-4 w-4 text-blue-600" />}
