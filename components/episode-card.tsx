@@ -54,7 +54,7 @@ export function EpisodeCard({
         <p className="text-sm text-muted-foreground leading-relaxed flex-1">
           {renderDescription(description)}
         </p>
-        <div className="flex items-center gap-2 mt-4">
+        <div className="flex items-center gap-2 mt-4 flex-wrap">
           {youtubeUrl && (
             <Button
               variant="outline"
