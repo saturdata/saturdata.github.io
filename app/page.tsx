@@ -271,10 +271,7 @@ function HomeSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Youtube className="h-8 w-8 text-destructive" />
-            <div>
-              <h3 className="font-semibold text-foreground">YouTube</h3>
-              <p className="text-xs text-muted-foreground font-mono">Watch & subscribe</p>
-            </div>
+            <h3 className="font-semibold text-foreground">YouTube</h3>
           </div>
           <p className="text-sm text-muted-foreground">
             Watch full episodes with video, tutorials, and visual explanations.
@@ -289,10 +286,7 @@ function HomeSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Music className="h-8 w-8 text-primary" />
-            <div>
-              <h3 className="font-semibold text-foreground">Spotify</h3>
-              <p className="text-xs text-muted-foreground font-mono">Listen & follow</p>
-            </div>
+            <h3 className="font-semibold text-foreground">Spotify</h3>
           </div>
           <p className="text-sm text-muted-foreground">
             Listen on the go with audio episodes perfect for your commute or morning routine.
@@ -307,16 +301,13 @@ function HomeSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Podcast className="h-8 w-8 text-purple-500" />
-            <div>
-              <h3 className="font-semibold text-foreground">Apple Podcasts</h3>
-              <p className="text-xs text-muted-foreground font-mono">Listen & subscribe</p>
-            </div>
+            <h3 className="font-semibold text-foreground">Apple Podcasts</h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Subscribe on Apple Podcasts and never miss an episode, right from your iPhone or Mac.
+            Listen to new episodes on all your Apple devices.
           </p>
         </a>
-
+        
         <a
           href="https://www.linkedin.com/company/saturdata/"
           target="_blank"
@@ -325,13 +316,25 @@ function HomeSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Linkedin className="h-8 w-8 text-primary" />
-            <div>
-              <h3 className="font-semibold text-foreground">LinkedIn</h3>
-              <p className="text-xs text-muted-foreground font-mono">Connect with us</p>
-            </div>
+            <h3 className="font-semibold text-foreground">LinkedIn</h3>
           </div>
           <p className="text-sm text-muted-foreground">
             Follow Saturdata for updates, behind-the-scenes content, and community discussions.
+          </p>
+        </a>
+
+        <a
+          href="https://github.com/saturdata/resources"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-border rounded-md bg-card py-8 px-6 hover:border-primary transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <img src="/assets/images/logos/github.webp" alt="GitHub" className="h-8 w-8 object-contain" />
+            <h3 className="font-semibold text-foreground">GitHub</h3>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Explore our learning resources and example notebooks on GitHub.
           </p>
         </a>
 
@@ -343,10 +346,7 @@ function HomeSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Coffee className="h-8 w-8 text-syntax-number" />
-            <div>
-              <h3 className="font-semibold text-foreground">Support the show</h3>
-              <p className="text-xs text-muted-foreground font-mono">Buy us a coffee</p>
-            </div>
+            <h3 className="font-semibold text-foreground">Support the show</h3>
           </div>
           <p className="text-sm text-muted-foreground">
             Love the podcast? Buy us a coffee to help keep the data conversations going!
