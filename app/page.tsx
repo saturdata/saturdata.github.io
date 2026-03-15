@@ -379,6 +379,8 @@ function EpisodesSection() {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
+      <RssPlayerEmbed />
+
       <QueryEditor title="get_episodes.sql">
         <div className="space-y-1">
           <div>
@@ -399,8 +401,6 @@ function EpisodesSection() {
       <div className="text-xs text-muted-foreground font-mono px-1">
         -- {totalEpisodes} episodes returned
       </div>
-
-      <RssPlayerEmbed />
 
       <div className="space-y-10">
         <div className="space-y-6">

@@ -64,7 +64,7 @@ export function EpisodeCard({
             >
               <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
                 <Youtube className="h-4 w-4 text-destructive" />
-                Watch
+                YouTube
               </a>
             </Button>
           )}
@@ -77,7 +77,7 @@ export function EpisodeCard({
             >
               <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
                 <Music className="h-4 w-4 text-primary" />
-                Listen
+                Spotify
               </a>
             </Button>
           )}

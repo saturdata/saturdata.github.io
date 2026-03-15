@@ -68,7 +68,7 @@ interface IDESidebarProps {
 
 export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) {
   return (
-    <aside className="w-64 border-r border-border bg-sidebar flex flex-col h-full">
+    <aside className="w-72 border-r border-border bg-sidebar flex flex-col h-full">
       <div className="p-3 border-b border-border">
         <div className="flex items-center gap-2">
           <Database className="h-5 w-5 text-primary" />
@@ -136,6 +136,11 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
             icon={<Linkedin className="h-4 w-4 text-blue-600" />}
             label="linkedin"
             onClick={() => window.open("https://www.linkedin.com/company/saturdata", "_blank")}
+          />
+          <TreeItem
+            icon={<img src="/assets/images/logos/github.webp" alt="GitHub" className="h-4 w-4 object-contain" />}
+            label="github"
+            onClick={() => window.open("https://github.com/saturdata/resources", "_blank")}
           />
           <TreeItem
             icon={<Coffee className="h-4 w-4 text-green-500" />}
