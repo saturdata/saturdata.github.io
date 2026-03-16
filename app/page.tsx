@@ -201,7 +201,7 @@ export default function SaturdataPage() {
             <section
               id="home"
               ref={(el) => { sectionRefs.current.home = el }}
-              className="min-h-screen py-6 px-4 md:px-6"
+              className="min-h-screen py-3 px-4 md:px-6"
             >
               <HomeSection />
             </section>
@@ -209,7 +209,7 @@ export default function SaturdataPage() {
             <section
               id="hosts"
               ref={(el) => { sectionRefs.current.hosts = el }}
-              className="min-h-screen py-6 px-4 md:px-6"
+              className="min-h-screen py-3 px-4 md:px-6"
             >
               <HostsSection />
             </section>
@@ -217,7 +217,7 @@ export default function SaturdataPage() {
             <section
               id="episodes"
               ref={(el) => { sectionRefs.current.episodes = el }}
-              className="min-h-screen py-6 px-4 md:px-6"
+              className="min-h-screen py-3 px-4 md:px-6"
             >
               <EpisodesSection />
             </section>
