@@ -78,7 +78,7 @@ Her impressive portfolio spans high-profile projects including HBO's Emmy-nomina
 <br/><br/>
 With Saturdata, Eli ventures into new creative territory beyond the silver screen. She masterfully applies her audio storytelling expertise to the podcasting medium, crafting an engaging listening experience that transforms complex technical topics into accessible and entertaining content for audiences.`,
         linkedin_link: 'https://www.linkedin.com/in/eli-akselrod/',
-        website_link: 'https://elisfx.com/#/'
+        website_link: 'https://interval-audio.com'
       }
     ]
   },
