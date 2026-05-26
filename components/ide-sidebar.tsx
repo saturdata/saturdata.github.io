@@ -16,6 +16,7 @@ import {
   Music,
   Coffee,
   Linkedin,
+  Mail,
   Podcast,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -146,6 +147,11 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
             icon={<Coffee className="h-4 w-4 text-green-500" />}
             label="buy us a coffee"
             onClick={() => window.open("https://buymeacoffee.com/saturdatapod", "_blank")}
+          />
+          <TreeItem
+            icon={<Mail className="h-4 w-4 text-sky-400" />}
+            label="email"
+            onClick={() => window.open("mailto:saturdatapod@gmail.com", "_blank")}
           />
         </TreeItem>
       </div>
