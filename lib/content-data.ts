@@ -194,11 +194,11 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         schedule_release: '2026-03-21T08:00:00-07:00'
       },
       {
-        title: 'From spaghetti to clean code: pandas, Polars and DuckDB explained',
+        title: 'From spaghetti to clean code: pandas, Polars, and DuckDB explained',
         type: 'episode',
         season: 1,
         image: '/assets/images/episodes/season-1/pandas_polars_duckdb.png',
-        description: 'Is your Python code held together with duct tape and prayers? Sam and Shifra untangle the spaghetti and walk you through what it actually means to write clean, maintainable data code, and which tools will get you there. From the humble origins of Pandas to the blazing speed of Polars and the SQL simplicity of DuckDB, this episode is your guide to leveling up without burning down your codebase.',
+        description: 'Is your Python code held together with duct tape and prayers? Sam and Shifra untangle the spaghetti and show you what clean, maintainable data code actually looks like. From the humble origins of pandas to the blazing speed of Polars and the SQL simplicity of DuckDB, this episode is your guide to leveling up without burning down your codebase.',
         youtube_link: 'https://youtu.be/2n0SgV0gzCE',
         spotify_link: 'https://open.spotify.com/show/5QolhKm1jDZzVuHO0S9ZBo?si=783ac20bae724144',
         apple_link: 'https://podcasts.apple.com/us/podcast/saturdata/id1878774351',
@@ -216,7 +216,7 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         schedule_release: '2026-04-04T08:00:00-07:00'
       },
       {
-        title: 'More episodes coming soon',
+        title: 'New episodes coming soon',
         type: 'episode',
         season: 1,
         image: '/assets/images/logos/saturdata.png',

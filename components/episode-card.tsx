@@ -1,4 +1,4 @@
-import { Play, Youtube, Music, Podcast } from "lucide-react"
+import { Play, Music, Podcast } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 function renderDescription(text: string) {
@@ -7,7 +7,7 @@ function renderDescription(text: string) {
     const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
     if (match) {
       return (
-        <a key={i} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
+        <a key={i} href={match[2]} target="_blank" rel="noopener noreferrer" className="relative z-10 text-primary underline underline-offset-2 hover:opacity-80">
           {match[1]}
         </a>
       )
@@ -34,11 +34,22 @@ export function EpisodeCard({
   imageUrl,
 }: EpisodeCardProps) {
   return (
-    <div className="border border-border rounded-md bg-card overflow-hidden transition-colors group flex flex-col">
+    <div className="relative border border-border rounded-md bg-card overflow-hidden transition-colors group flex flex-col hover:border-primary">
+      {youtubeUrl && (
+        <a
+          href={youtubeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Watch ${title} on YouTube`}
+          className="absolute inset-0 z-0"
+        >
+          <span className="sr-only">Watch on YouTube</span>
+        </a>
+      )}
       {imageUrl && (
         <div className="w-full aspect-video bg-muted/30 overflow-hidden">
-          <img 
-            src={imageUrl} 
+          <img
+            src={imageUrl}
             alt={title}
             className="w-full h-full object-cover"
           />
@@ -55,24 +66,11 @@ export function EpisodeCard({
           {renderDescription(description)}
         </p>
         <div className="flex items-center gap-2 mt-4 flex-wrap">
-          {youtubeUrl && (
-            <Button
-              variant="outline"
-              size="default"
-              className="gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
-              asChild
-            >
-              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
-                <Youtube className="h-4 w-4 text-destructive" />
-                YouTube
-              </a>
-            </Button>
-          )}
           {spotifyUrl && (
             <Button
               variant="outline"
               size="default"
-              className="gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
+              className="relative z-10 gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
               asChild
             >
               <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
@@ -85,7 +83,7 @@ export function EpisodeCard({
             <Button
               variant="outline"
               size="default"
-              className="gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
+              className="relative z-10 gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
               asChild
             >
               <a href={appleUrl} target="_blank" rel="noopener noreferrer">
