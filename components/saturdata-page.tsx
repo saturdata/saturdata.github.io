@@ -328,7 +328,7 @@ function HomeSection() {
             <h3 className="font-semibold text-foreground">Spotify</h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Listen on the go with audio episodes perfect for your commute or morning routine.
+            Listen on the go with audio episodes.
           </p>
         </a>
 
@@ -373,7 +373,7 @@ function HomeSection() {
             <h3 className="font-semibold text-foreground">GitHub</h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Explore our learning resources and example notebooks on GitHub.
+            Explore our learning resources and example code.
           </p>
         </a>
 
@@ -401,7 +401,7 @@ function HomeSection() {
             <h3 className="font-semibold text-foreground">Email</h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Got a question, guest pitch, or feedback? Send us a note.
+            Reach out to us with your questions, guest pitches, and feedback.
           </p>
         </a>
       </div>
@@ -566,7 +566,7 @@ function HostsSection() {
           pronouns=""
           role="Podcast"
           bio="Saturdata is the community-driven podcast humanizing the data world for the next generation of analysts, scientists, and engineers. Join hosts Shifra Williams and Sam LaFell every weekend as they break down both the career journey and the technical foundations that matter. <br></br> From navigating interviews to mastering SQL, Python, terminal basics, and understanding AI safety, Saturdata covers the full stack of becoming a successful data professional."
-          image="assets/images/about/saturdata_square.png"
+          image="/assets/images/about/saturdata_square.png"
           linkedinLink="https://www.linkedin.com/company/saturdata"
           websiteLink="https://saturdata.github.io"
         />

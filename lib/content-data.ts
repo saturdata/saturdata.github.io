@@ -240,7 +240,8 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         image: '/assets/images/appearances/fpa-today.png',
         description: 'Shifra joins FP&A Today with Glenn Hopper to break down data science methods for finance professionals, from data ingestion to machine learning and ARIMA models in Excel.',
         youtube_link: 'https://youtu.be/lWFpcwcSmQg?si=EUMoEd4Idw_wWrfo',
-        spotify_link: 'https://open.spotify.com/episode/0D3BaBiRxY4hAAGB1IITfQ?si=a6a09d5af2ea4da9'
+        spotify_link: 'https://open.spotify.com/episode/0D3BaBiRxY4hAAGB1IITfQ?si=a6a09d5af2ea4da9',
+        apple_link: 'https://podcasts.apple.com/us/podcast/data-science-masterclass-with-shifra-isaacs/id1623132242?i=1000710286928'
       },
       {
         title: 'How to get hired as a data engineer',
@@ -248,7 +249,8 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         image: '/assets/images/appearances/sam-rsd.png',
         description: 'Sam joins Ready Set Do with Naman Pandey to share his experience breaking into data engineering and the key strategies for landing data engineering roles.',
         youtube_link: 'https://youtu.be/JtF8b7k8nO8?si=Vhj1iO7c9itUbx_3',
-        spotify_link: 'https://open.spotify.com/episode/6cn5CoLiUalZCxnFOmWRiK?si=c9a4cc190234451a'
+        spotify_link: 'https://open.spotify.com/episode/6cn5CoLiUalZCxnFOmWRiK?si=c9a4cc190234451a',
+        apple_link: 'https://podcasts.apple.com/us/podcast/how-to-get-hired-as-a-data-engineer-w-sam/id1740005017?i=1000703810872'
       },
       {
         title: 'Why LinkedIn is your secret weapon',
@@ -256,7 +258,8 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         image: '/assets/images/appearances/shif-rsd-li.png',
         description: 'Shifra joins Ready Set Do with Naman Pandey to share how professionals can leverage LinkedIn to grow their careers, build networks, and create opportunities for advancement.',
         youtube_link: 'https://www.youtube.com/watch?v=wphrAyEr6dY',
-        spotify_link: 'https://open.spotify.com/episode/5uxbUxZ46GYLQUfRi9O4TK?si=162be73fdd494380'
+        spotify_link: 'https://open.spotify.com/episode/5uxbUxZ46GYLQUfRi9O4TK?si=162be73fdd494380',
+        apple_link: 'https://podcasts.apple.com/us/podcast/how-to-leverage-posting-content-on-linkedin-to-unlock/id1740005017?i=1000706744353'
       },
       {
         title: 'From music to data: How anyone can pivot to a tech career',
@@ -264,7 +267,8 @@ With Saturdata, Eli ventures into new creative territory beyond the silver scree
         image: '/assets/images/appearances/shif-rsd-music.png',
         description: 'Shifra joins Ready Set Do with Naman Pandey to share their journey from music to data and practical strategies for transitioning to tech from any background.',
         youtube_link: 'https://youtu.be/d9HULEWeCmk?si=-arO55XF-T2nEKiM',
-        spotify_link: 'https://open.spotify.com/episode/73CdAVvQLlVdEtvWuiPNKe?si=9c9c7ef7e0344a83'
+        spotify_link: 'https://open.spotify.com/episode/73CdAVvQLlVdEtvWuiPNKe?si=9c9c7ef7e0344a83',
+        apple_link: 'https://podcasts.apple.com/us/podcast/how-to-pivot-to-a-career-in-tech-without-any-prior/id1740005017?i=1000705646699'
       },
       {
         title: 'Data science in healthcare: navigating insights and challenges',
