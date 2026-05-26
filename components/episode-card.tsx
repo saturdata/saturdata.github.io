@@ -70,7 +70,7 @@ export function EpisodeCard({
             <Button
               variant="outline"
               size="default"
-              className="relative z-10 gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
+              className="relative z-10 gap-2 text-sm bg-transparent hover:bg-muted hover:border-border"
               asChild
             >
               <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
@@ -83,7 +83,7 @@ export function EpisodeCard({
             <Button
               variant="outline"
               size="default"
-              className="relative z-10 gap-2 text-sm bg-transparent hover:border-primary hover:bg-transparent"
+              className="relative z-10 gap-2 text-sm bg-transparent hover:bg-muted hover:border-border"
               asChild
             >
               <a href={appleUrl} target="_blank" rel="noopener noreferrer">

@@ -343,7 +343,7 @@ function HomeSection() {
             <h3 className="font-semibold text-foreground">Apple Podcasts</h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Listen to new episodes on all your Apple devices.
+            Listen on all of your Apple devices.
           </p>
         </a>
 
