@@ -1,4 +1,4 @@
-import { Database, CheckCircle, Wifi } from "lucide-react"
+import { Database, CheckCircle } from "lucide-react"
 
 export function StatusBar() {
   return (
@@ -13,13 +13,7 @@ export function StatusBar() {
           <span className="hidden md:inline">Connected</span>
         </div>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1.5">
-          <Wifi className="h-3 w-3 text-primary" />
-          <span>Live</span>
-        </div>
-        <span className="font-mono">v1.0.0</span>
-      </div>
+      <span>© Saturdata {new Date().getFullYear()}</span>
     </footer>
   )
 }
