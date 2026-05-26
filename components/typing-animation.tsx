@@ -71,18 +71,18 @@ export function TypingAnimation({ speed = 50 }: TypingAnimationProps) {
   return (
     <div className="space-y-1">
       <div>
-        <LineNumber>1</LineNumber>
+        <LineNumber>{1}</LineNumber>
         <SQLComment>-- Saturdata: The podcast by and for the data community</SQLComment>
       </div>
       <div>
-        <LineNumber>2</LineNumber>
+        <LineNumber>{2}</LineNumber>
       </div>
       <div>
-        <LineNumber>3</LineNumber>
+        <LineNumber>{3}</LineNumber>
         <SQLKeyword>SELECT</SQLKeyword>
       </div>
       <div>
-        <LineNumber>4</LineNumber>
+        <LineNumber>{4}</LineNumber>
         <span>{"    "}</span>
         <SQLString>{"'Humanize the data world'"}</SQLString>
         <span> </span>
@@ -90,7 +90,7 @@ export function TypingAnimation({ speed = 50 }: TypingAnimationProps) {
         <span> mission,</span>
       </div>
       <div>
-        <LineNumber>5</LineNumber>
+        <LineNumber>{5}</LineNumber>
         <span>{"    "}</span>
         <SQLString>{"'Saturdays'"}</SQLString>
         <span> </span>
@@ -98,7 +98,7 @@ export function TypingAnimation({ speed = 50 }: TypingAnimationProps) {
         <span> schedule,</span>
       </div>
       <div>
-        <LineNumber>6</LineNumber>
+        <LineNumber>{6}</LineNumber>
         <span>{"    "}</span>
         <SQLFunction>ARRAY</SQLFunction>
         <span>[</span>
@@ -110,18 +110,18 @@ export function TypingAnimation({ speed = 50 }: TypingAnimationProps) {
         <span> hosts</span>
       </div>
       <div>
-        <LineNumber>7</LineNumber>
+        <LineNumber>{7}</LineNumber>
         <SQLKeyword>FROM</SQLKeyword>
         <span> podcast.metadata</span>
       </div>
       <div>
-        <LineNumber>8</LineNumber>
+        <LineNumber>{8}</LineNumber>
         <SQLKeyword>WHERE</SQLKeyword>
         <span> audience = </span>
         <SQLString>{"'next_generation'"}</SQLString>
       </div>
       <div>
-        <LineNumber>9</LineNumber>
+        <LineNumber>{9}</LineNumber>
         <span>{"    "}</span>
         <SQLKeyword>AND</SQLKeyword>
         <span>{" role = "}</span>
