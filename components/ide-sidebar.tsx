@@ -7,7 +7,7 @@ import {
   Database,
   Table,
   Users,
-  Headphones,
+  Plug,
   Mic,
   Play,
   ChevronDown,
@@ -113,8 +113,8 @@ export function IDESidebar({ activeSection, onSectionChange }: IDESidebarProps) 
         </TreeItem>
 
         <TreeItem
-          icon={<Headphones className="h-4 w-4 text-syntax-keyword" />}
-          label="platforms"
+          icon={<Plug className="h-4 w-4 text-syntax-keyword" />}
+          label="connections"
           defaultOpen
         >
           <TreeItem
