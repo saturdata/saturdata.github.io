@@ -5,167 +5,130 @@ import { LineNumber, SQLComment, SQLKeyword, SQLString, SQLFunction } from "@/co
 
 interface TypingAnimationProps {
   speed?: number
-  onComplete?: () => void
 }
 
-export function TypingAnimation({ speed = 50, onComplete }: TypingAnimationProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isComplete, setIsComplete] = useState(false)
+const ROLES = ["ai_engineer", "data_engineer", "data_scientist", "data_analyst", "analytics_engineer"] as const
+const PAUSE_FULL_MS = 1500
+const PAUSE_EMPTY_MS = 300
 
-  const fullQuery = `-- Saturdata: The podcast by and for the data community
+type CyclePhase = "pauseFull" | "erasing" | "pauseEmpty" | "typingNew"
 
-SELECT
-    'Humanizing the data world' AS mission,
-    'Saturdays' AS schedule,
-    ARRAY['Shifra Williams', 'Sam LaFell'] AS hosts
-FROM podcast.metadata
-WHERE audience = 'next_generation'
-    AND role IN ('data_analyst', 'data_scientist', 'data_engineer');`
+const Cursor = () => (
+  <span
+    className="inline-block w-[2px] h-[18px] ml-[1px]"
+    style={{
+      backgroundColor: '#22c55e',
+      animation: 'cursor-blink 0.8s step-end infinite',
+      verticalAlign: 'text-bottom',
+      boxShadow: '0 0 8px rgba(34, 197, 94, 0.6)',
+    }}
+  />
+)
+
+export function TypingAnimation({ speed = 50 }: TypingAnimationProps) {
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [displayedRole, setDisplayedRole] = useState<string>("")
+  const [cyclePhase, setCyclePhase] = useState<CyclePhase>("typingNew")
 
   useEffect(() => {
-    if (currentIndex < fullQuery.length) {
-      const timer = setTimeout(() => {
-        setCurrentIndex(currentIndex + 1)
-      }, speed)
-      return () => clearTimeout(timer)
-    } else if (!isComplete) {
-      setIsComplete(true)
-      onComplete?.()
-    }
-  }, [currentIndex, speed, fullQuery.length, isComplete, onComplete])
-
-  const renderLine = (lineText: string, lineNum: number, lineStartIndex: number) => {
-    // Calculate how much of this line should be visible
-    const lineEndIndex = lineStartIndex + lineText.length
-    const visibleLength = Math.max(0, Math.min(currentIndex - lineStartIndex, lineText.length))
-    const visibleText = lineText.slice(0, visibleLength)
-    const invisibleText = lineText.slice(visibleLength)
-    const isLastVisibleLine = currentIndex >= lineStartIndex && currentIndex < lineEndIndex
-
-    // Comment line
-    if (lineText.trim().startsWith("--")) {
-      return (
-        <div key={lineNum}>
-          <LineNumber>{lineNum}</LineNumber>
-          <SQLComment>
-            <span>{visibleText}</span>
-          </SQLComment>
-          {isLastVisibleLine && !isComplete && renderCursor()}
-          <span className="invisible">{invisibleText}</span>
-        </div>
-      )
+    if (cyclePhase === "pauseFull") {
+      const t = setTimeout(() => setCyclePhase("erasing"), PAUSE_FULL_MS)
+      return () => clearTimeout(t)
     }
 
-    // Empty line
-    if (lineText.trim() === "") {
-      return (
-        <div key={lineNum}>
-          <LineNumber>{lineNum}</LineNumber>
-          {isLastVisibleLine && !isComplete && renderCursor()}
-          <span className="invisible">{lineText}</span>
-        </div>
-      )
-    }
-
-    // Parse SQL keywords and syntax for the visible part
-    const keywords = ["SELECT", "FROM", "WHERE", "AND", "IN", "AS"]
-    const functions = ["ARRAY"]
-
-    let elements: (string | React.ReactElement)[] = [visibleText]
-
-    // Replace keywords
-    keywords.forEach((keyword) => {
-      const newElements: (string | React.ReactElement)[] = []
-      elements.forEach((el) => {
-        if (typeof el === "string") {
-          const parts = el.split(new RegExp(`\\b(${keyword})\\b`, "g"))
-          parts.forEach((part, idx) => {
-            if (part === keyword) {
-              newElements.push(<SQLKeyword key={`kw-${lineNum}-${keyword}-${idx}`}>{part}</SQLKeyword>)
-            } else if (part) {
-              newElements.push(part)
-            }
-          })
-        } else {
-          newElements.push(el)
-        }
-      })
-      elements = newElements
-    })
-
-    // Replace functions
-    functions.forEach((func) => {
-      const newElements: (string | React.ReactElement)[] = []
-      elements.forEach((el) => {
-        if (typeof el === "string") {
-          const parts = el.split(new RegExp(`\\b(${func})\\b`, "g"))
-          parts.forEach((part, idx) => {
-            if (part === func) {
-              newElements.push(<SQLFunction key={`fn-${lineNum}-${func}-${idx}`}>{part}</SQLFunction>)
-            } else if (part) {
-              newElements.push(part)
-            }
-          })
-        } else {
-          newElements.push(el)
-        }
-      })
-      elements = newElements
-    })
-
-    // Replace strings (single quotes)
-    const finalElements: (string | React.ReactElement)[] = []
-    elements.forEach((el, idx) => {
-      if (typeof el === "string") {
-        const stringMatches = el.split(/('(?:[^'\\]|\\.)*')/g)
-        stringMatches.forEach((match, matchIdx) => {
-          if (match.startsWith("'") && match.endsWith("'")) {
-            finalElements.push(
-              <SQLString key={`str-${lineNum}-${idx}-${matchIdx}`}>{match}</SQLString>
-            )
-          } else if (match) {
-            finalElements.push(match)
-          }
-        })
-      } else {
-        finalElements.push(el)
+    if (cyclePhase === "erasing") {
+      if (displayedRole.length === 0) {
+        setCyclePhase("pauseEmpty")
+        return
       }
-    })
+      const t = setTimeout(() => {
+        setDisplayedRole((prev) => prev.slice(0, -1))
+      }, speed)
+      return () => clearTimeout(t)
+    }
 
-    return (
-      <div key={lineNum}>
-        <LineNumber>{lineNum}</LineNumber>
-        {finalElements}
-        {isLastVisibleLine && !isComplete && renderCursor()}
-        <span className="invisible">{invisibleText}</span>
-      </div>
-    )
-  }
+    if (cyclePhase === "pauseEmpty") {
+      const t = setTimeout(() => {
+        setRoleIndex((prev) => (prev + 1) % ROLES.length)
+        setCyclePhase("typingNew")
+      }, PAUSE_EMPTY_MS)
+      return () => clearTimeout(t)
+    }
 
-  const renderCursor = () => (
-    <span 
-      className="inline-block w-[2px] h-[18px] ml-[1px]"
-      style={{ 
-        backgroundColor: '#22c55e',
-        animation: 'cursor-blink 0.8s step-end infinite',
-        verticalAlign: 'text-bottom',
-        boxShadow: '0 0 8px rgba(34, 197, 94, 0.6)'
-      }} 
-    />
-  )
-
-  const lines = fullQuery.split("\n")
-  let charIndex = 0
-  const renderedLines = lines.map((line, idx) => {
-    const lineStartIndex = charIndex
-    const renderedLine = renderLine(line, idx + 1, lineStartIndex)
-    charIndex += line.length + 1 // +1 for newline character
-    return renderedLine
-  })
+    if (cyclePhase === "typingNew") {
+      const target = ROLES[roleIndex]
+      if (displayedRole === target) {
+        setCyclePhase("pauseFull")
+        return
+      }
+      const t = setTimeout(() => {
+        setDisplayedRole(target.slice(0, displayedRole.length + 1))
+      }, speed)
+      return () => clearTimeout(t)
+    }
+  }, [cyclePhase, displayedRole, roleIndex, speed])
 
   return (
-    <div className="space-y-1 relative">
-      {renderedLines}
+    <div className="space-y-1">
+      <div>
+        <LineNumber>1</LineNumber>
+        <SQLComment>-- Saturdata: The podcast by and for the data community</SQLComment>
+      </div>
+      <div>
+        <LineNumber>2</LineNumber>
+      </div>
+      <div>
+        <LineNumber>3</LineNumber>
+        <SQLKeyword>SELECT</SQLKeyword>
+      </div>
+      <div>
+        <LineNumber>4</LineNumber>
+        <span>{"    "}</span>
+        <SQLString>{"'Humanize the data world'"}</SQLString>
+        <span> </span>
+        <SQLKeyword>AS</SQLKeyword>
+        <span> mission,</span>
+      </div>
+      <div>
+        <LineNumber>5</LineNumber>
+        <span>{"    "}</span>
+        <SQLString>{"'Saturdays'"}</SQLString>
+        <span> </span>
+        <SQLKeyword>AS</SQLKeyword>
+        <span> schedule,</span>
+      </div>
+      <div>
+        <LineNumber>6</LineNumber>
+        <span>{"    "}</span>
+        <SQLFunction>ARRAY</SQLFunction>
+        <span>[</span>
+        <SQLString>{"'Shifra Williams'"}</SQLString>
+        <span>, </span>
+        <SQLString>{"'Sam LaFell'"}</SQLString>
+        <span>] </span>
+        <SQLKeyword>AS</SQLKeyword>
+        <span> hosts</span>
+      </div>
+      <div>
+        <LineNumber>7</LineNumber>
+        <SQLKeyword>FROM</SQLKeyword>
+        <span> podcast.metadata</span>
+      </div>
+      <div>
+        <LineNumber>8</LineNumber>
+        <SQLKeyword>WHERE</SQLKeyword>
+        <span> audience = </span>
+        <SQLString>{"'next_generation'"}</SQLString>
+      </div>
+      <div>
+        <LineNumber>9</LineNumber>
+        <span>{"    "}</span>
+        <SQLKeyword>AND</SQLKeyword>
+        <span>{" role = "}</span>
+        <SQLString>{`'${displayedRole}`}</SQLString>
+        <Cursor />
+        <SQLString>{`';`}</SQLString>
+      </div>
       <style jsx>{`
         @keyframes cursor-blink {
           0%, 50% { opacity: 1; }
@@ -175,4 +138,3 @@ WHERE audience = 'next_generation'
     </div>
   )
 }
-

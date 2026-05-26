@@ -283,7 +283,7 @@ function HomeSection() {
         ]}
         data={[
           {
-            mission: "Humanizing the data world for the next generation",
+            mission: "Humanize the data world for the next generation",
             schedule: "Saturdays",
             hosts: "{Shifra Williams, Sam LaFell}",
           },
